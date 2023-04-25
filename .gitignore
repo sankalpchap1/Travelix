@@ -1,5 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
+.idea
 # dependencies
 /node_modules
 /.pnp
@@ -7,12 +7,10 @@
 
 # testing
 /coverage
-
-backend/env
-backend/__pycache__
+pyvenv.cfg
 
 # production
-/build
+#/build
 
 # misc
 .DS_Store
