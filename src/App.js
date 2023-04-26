@@ -179,7 +179,7 @@ function App() {
 
     <footer>
       <p>&copy; 2023 Travelix, Inc.</p>
-      <p>RADS &copy; 2023</p>
+      <p>&copy; RADS 2023</p>
     </footer>
      </div>
   );
