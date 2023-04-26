@@ -2,12 +2,14 @@ import { useState } from 'react'
 import axios from "axios";
 import logo from './logo.svg';
 import './App.css';
-
+import DropDown from './DropDown';
 function App() {
 
    // new line start
   const [profileData, setProfileData] = useState(null)
-
+  const states = ['PA', 'FL', 'TN', 'IN', 'MO', 'LA', 'AZ', 'NJ', 'NV', 'AB']
+  const users = ['UID1', 'UID2' , 'UID3']
+  
   function getData() {
     axios({
       method: "GET",
@@ -60,23 +62,23 @@ function App() {
         <a id="logo" href="#home"><img src="https://github.com/bassirishabh/Travelix/blob/master/public/travelix.png?raw=true" alt="Logo Image"></img></a>
 
       </div>
-      <nav class="main-nav">
+      <nav className="main-nav">
         <a href="#home">Restaurants</a>
         <a href="#tvShows">Hotels</a>
         <a href="#movies">Shopping</a>
       </nav>
-      <nav class="sub-nav">
-        <a href="#"><i class="fas fa-search sub-nav-logo"></i></a>
-        <a href="#"><i class="fas fa-bell sub-nav-logo"></i></a>
-        <a href="#">User</a>
-        <a href="#">States</a>
+      <nav className="sub-nav">
+        <a href="#"><i className="fas fa-search sub-nav-logo"></i></a>
+        <a href="#"><i className="fas fa-bell sub-nav-logo"></i></a>
+        <DropDown options={users} label="User"></DropDown>
+        <DropDown options={states} label="State"></DropDown>
       </nav>
     </header>
 
-    <section class="main-container" >
-      <div class="location" id="home">
+    <section className="main-container" >
+      <div className="location" id="home">
           <h1 id="home">Popular on Travelix</h1>
-          <div class="box">
+          <div className="box">
             <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p1.PNG?raw=true" alt=""></img></a>
             <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p2.PNG?raw=true" alt=""></img></a>
             <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p3.PNG?raw=true" alt=""></img></a>
@@ -95,7 +97,7 @@ function App() {
 
 
       <h1 id="myList">Recommended for You</h1>
-      <div class="box">
+      <div className="box">
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t1.PNG?raw=true" alt=""></img></a>
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t2.PNG?raw=true" alt=""></img></a>
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t3.PNG?raw=true" alt=""></img></a>
@@ -184,7 +186,7 @@ function App() {
       {/*
 
       <h1 id="movies">Blockbuster Action & Adventure</h1>
-      <div class="box">
+      <div className="box">
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m1.PNG?raw=true" alt=""/></a>
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m2.PNG?raw=true" alt=""/></a>
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m3.PNG?raw=true" alt=""/></a>
@@ -194,7 +196,7 @@ function App() {
       </div>
 
       <h1 id="originals">Netflix Originals</h1>
-      <div class="box">
+      <div className="box">
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o1.PNG?raw=true" alt=""/></a>
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o2.PNG?raw=true" alt=""/></a>
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o3.PNG?raw=true" alt=""/></a>
@@ -204,14 +206,14 @@ function App() {
       </div>
       */}
     </section>
-    <section class="link">
-      <div class="logos">
-        <a href="#"><i class="fab fa-facebook-square fa-2x logo"></i></a>
-        <a href="#"><i class="fab fa-instagram fa-2x logo"></i></a>
-        <a href="#"><i class="fab fa-twitter fa-2x logo"></i></a>
-        <a href="#"><i class="fab fa-youtube fa-2x logo"></i></a>
+    <section className="link">
+      <div className="logos">
+        <a href="#"><i className="fab fa-facebook-square fa-2x logo"></i></a>
+        <a href="#"><i className="fab fa-instagram fa-2x logo"></i></a>
+        <a href="#"><i className="fab fa-twitter fa-2x logo"></i></a>
+        <a href="#"><i className="fab fa-youtube fa-2x logo"></i></a>
       </div>
-      <div class="sub-links">
+      <div className="sub-links">
         <ul>
           <li><a href="#">Hotels</a></li>
           <li><a href="#">Restaurants</a></li>
