@@ -111,10 +111,63 @@ function App() {
 
       </div>
 
-      {/*
 
-      <h1 id="tvShows">TV Shows</h1>
+
+      <h1 id="tvShows">CF Recommendations</h1>
       <div class="box">
+        <a style={{textDecoration: 'none'}} href="">
+                <div class="tile" style={{backgroundColor: '#B3E5FC'}}>
+                <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p12.PNG?raw=true" alt="Hotel Image"/>
+                <div class="hotel-title">
+                    <h3>Radisson Blue</h3>
+                </div>
+                </div>
+             </a>
+        <a style={{textDecoration: 'none'}} href="">
+                <div class="tile" style={{backgroundColor: '#B3E5FC'}}>
+                <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv1.PNG?raw=true" alt="Hotel Image"/>
+                <div class="hotel-title">
+                    <h3>Radisson Blue</h3>
+                </div>
+                </div>
+         </a>
+
+        <a style={{textDecoration: 'none'}} href="">
+                <div class="tile" style={{backgroundColor: '#B3E5FC'}}>
+                <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv2.PNG?raw=true" alt="Hotel Image"/>
+                <div class="hotel-title">
+                    <h3>Radisson Blue</h3>
+                </div>
+                </div>
+             </a>
+
+        <a style={{textDecoration: 'none'}} href="">
+                <div class="tile" style={{backgroundColor: '#B3E5FC'}}>
+                <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv3.PNG?raw=true" alt="Hotel Image"/>
+                <div class="hotel-title">
+                    <h3>Radisson Blue</h3>
+                </div>
+                </div>
+             </a>
+
+        <a style={{textDecoration: 'none'}} href="">
+                <div class="tile" style={{backgroundColor: '#B3E5FC'}}>
+                <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv4.PNG?raw=true" alt="Hotel Image"/>
+                <div class="hotel-title">
+                    <h3>Radisson Blue</h3>
+                </div>
+                </div>
+             </a>
+
+         <a style={{textDecoration: 'none'}} href="">
+                <div class="tile" style={{backgroundColor: '#B3E5FC'}}>
+                <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv5.PNG?raw=true" alt="Hotel Image"/>
+                <div class="hotel-title">
+                    <h3>Radisson Blue</h3>
+                </div>
+                </div>
+             </a>
+
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv1.PNG?raw=true" alt=""/></a>
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv2.PNG?raw=true" alt=""/></a>
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv3.PNG?raw=true" alt=""/></a>
@@ -127,9 +180,8 @@ function App() {
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv9.PNG?raw=true" alt=""/></a>
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv10.PNG?raw=true" alt=""/></a>
         <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv11.PNG?raw=true" alt=""/></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv12.PNG?raw=true" alt=""/></a>
       </div>
-
+      {/*
 
       <h1 id="movies">Blockbuster Action & Adventure</h1>
       <div class="box">
