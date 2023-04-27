@@ -41,7 +41,7 @@ const DropDown = ({ options,label }) => {
         setState(event.target.value);
     };
     return (
-        <FormControl fullWidth>
+        <FormControl variant="standard" sx={{ width: '30%', marginLeft: 'auto' }}>
             <InputLabel sx={{color:'white'}}>{label}</InputLabel>
             <>
                 <Select

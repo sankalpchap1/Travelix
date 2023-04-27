@@ -21,4 +21,5 @@ def serve():
 
 if __name__ == '__main__':
     app.debug = True
+    print("HELLO FROM APP.PY")
     app.run()

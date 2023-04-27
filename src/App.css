@@ -136,6 +136,13 @@ header {
   color: var(--dark);
 }
 
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
 
 /* MAIN CONTIANER */
 .main-container {
@@ -319,8 +326,6 @@ footer {
   }
 
 
-
-
 .tile {
   width: 50px;
   height: 50px;
@@ -346,6 +351,7 @@ footer {
   margin: 0;
   font-size: 18px;
 }
+
 
 
 }

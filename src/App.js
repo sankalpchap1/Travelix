@@ -7,9 +7,20 @@ function App() {
 
    // new line start
   const [profileData, setProfileData] = useState(null)
-  const states = ['PA', 'FL', 'TN', 'IN', 'MO', 'LA', 'AZ', 'NJ', 'NV', 'AB']
-  const users = ['UID1', 'UID2' , 'UID3']
-  
+
+  const stateNames = {'PA': 'Pennsylvania', 'FL': 'Florida', 'TN': 'Tennessee', 'IN': 'Indiana', 'MO': 'Missouri', 'LA': 'Louisiana', 'AZ': 'Arizona', 'NJ': 'New Jersey', 'NV': 'Nevada', 'AB': 'Alabama'}
+  const users = ['User 1', 'User 2' , 'User 3']
+  const stateValues = Object.values(stateNames);
+//  const handleStateChange = (event) => {
+//        const selectedState = event.target.value;
+//        setState(selectedState);
+//        onChange(selectedState);
+//    };
+//
+//    change: function(event){
+//         this.setState({value: event.target.value});
+//     },
+
   function getData() {
     axios({
       method: "GET",
@@ -46,17 +57,18 @@ function App() {
 //        </a>
 //
 //        {/* new line start*/}
-//        <p>To get your profile details: </p><button onClick={getData}>Click me</button>
+//       <p>To get your profile details: </p><button onClick={getData}>Click me</button>
 //        {profileData && <div>
 //              <p>Profile name: {profileData.profile_name}</p>
 //              <p>About me: {profileData.about_me}</p>
 //            </div>
 //        }
 //         {/* end of new line */}
-//      </header>
+//
 //    </div>
-<div className="wrapper">
+    <div className="wrapper">
     <header>
+
       <div class="netflixLogo">
         {/*<a id="logo" href="#home"><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/logo.PNG?raw=true" alt="Logo Image"></img></a>*/}
         <a id="logo" href="#home"><img src="https://github.com/bassirishabh/Travelix/blob/master/public/travelix.png?raw=true" alt="Logo Image"></img></a>
@@ -66,8 +78,12 @@ function App() {
         <a href="#home">Restaurants</a>
         <a href="#tvShows">Hotels</a>
         <a href="#movies">Shopping</a>
-        <DropDown options={users} label="User"></DropDown>
-        <DropDown options={states} label="State"></DropDown>
+
+
+
+        <DropDown className="small-nav" options={users} label="User" ></DropDown>
+        <DropDown className="small-nav" options={stateValues} label="State"></DropDown>
+
       </nav>
       <nav className="sub-nav">
         <a href="#"><i className="fas fa-search sub-nav-logo"></i></a>
