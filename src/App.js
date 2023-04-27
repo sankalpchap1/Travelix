@@ -66,12 +66,12 @@ function App() {
         <a href="#home">Restaurants</a>
         <a href="#tvShows">Hotels</a>
         <a href="#movies">Shopping</a>
+        <DropDown options={users} label="User"></DropDown>
+        <DropDown options={states} label="State"></DropDown>
       </nav>
       <nav className="sub-nav">
         <a href="#"><i className="fas fa-search sub-nav-logo"></i></a>
         <a href="#"><i className="fas fa-bell sub-nav-logo"></i></a>
-        <DropDown options={users} label="User"></DropDown>
-        <DropDown options={states} label="State"></DropDown>
       </nav>
     </header>
 
