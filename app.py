@@ -1,21 +1,12 @@
-from collections import defaultdict
-from scipy.sparse import coo_matrix
 from flask import Flask, send_from_directory
 from flask_cors import CORS, cross_origin
-import os
 import json
-import re
-import sys
-import csv
 import pandas as pd
-import numpy as np
-import seaborn as seab
 import pickle
 import datetime
 from Recommendations import Recommendations
 from Business import Business
 import bz2file as bz2
-import json
 # print("pickle version"+pickle.format_version)
 
 
