@@ -89,25 +89,35 @@ def decompress_pickle(file):
 hotel_state_rec_map = {}
 print("Loading Hotel Data Files...")
 print(datetime.datetime.now())
-PA_Hotel_Recommendation = decompress_pickle("PA_Hotel_Recommendation.pbz2")
+PA_Hotel_Recommendation = decompress_pickle(
+    "data/hotel/PA_Hotel_Recommendation.pbz2")
 hotel_state_rec_map['PA'] = PA_Hotel_Recommendation
-FL_Hotel_Recommendation = decompress_pickle("FL_Hotel_Recommendation.pbz2")
+FL_Hotel_Recommendation = decompress_pickle(
+    "data/hotel/FL_Hotel_Recommendation.pbz2")
 hotel_state_rec_map['FL'] = FL_Hotel_Recommendation
-TN_Hotel_Recommendation = decompress_pickle("TN_Hotel_Recommendation.pbz2")
+TN_Hotel_Recommendation = decompress_pickle(
+    "data/hotel/TN_Hotel_Recommendation.pbz2")
 hotel_state_rec_map['TN'] = TN_Hotel_Recommendation
-IN_Hotel_Recommendation = decompress_pickle("IN_Hotel_Recommendation.pbz2")
+IN_Hotel_Recommendation = decompress_pickle(
+    "data/hotel/IN_Hotel_Recommendation.pbz2")
 hotel_state_rec_map['IN'] = IN_Hotel_Recommendation
-MO_Hotel_Recommendation = decompress_pickle("MO_Hotel_Recommendation.pbz2")
+MO_Hotel_Recommendation = decompress_pickle(
+    "data/hotel/MO_Hotel_Recommendation.pbz2")
 hotel_state_rec_map['MO'] = MO_Hotel_Recommendation
-LA_Hotel_Recommendation = decompress_pickle("LA_Hotel_Recommendation.pbz2")
+LA_Hotel_Recommendation = decompress_pickle(
+    "data/hotel/LA_Hotel_Recommendation.pbz2")
 hotel_state_rec_map['LA'] = LA_Hotel_Recommendation
-AZ_Hotel_Recommendation = decompress_pickle("AZ_Hotel_Recommendation.pbz2")
+AZ_Hotel_Recommendation = decompress_pickle(
+    "data/hotel/AZ_Hotel_Recommendation.pbz2")
 hotel_state_rec_map['AZ'] = AZ_Hotel_Recommendation
-NJ_Hotel_Recommendation = decompress_pickle("NJ_Hotel_Recommendation.pbz2")
+NJ_Hotel_Recommendation = decompress_pickle(
+    "data/hotel/NJ_Hotel_Recommendation.pbz2")
 hotel_state_rec_map['NJ'] = NJ_Hotel_Recommendation
-NV_Hotel_Recommendation = decompress_pickle("NV_Hotel_Recommendation.pbz2")
+NV_Hotel_Recommendation = decompress_pickle(
+    "data/hotel/NV_Hotel_Recommendation.pbz2")
 hotel_state_rec_map['NV'] = NV_Hotel_Recommendation
-AB_Hotel_Recommendation = decompress_pickle("AB_Hotel_Recommendation.pbz2")
+AB_Hotel_Recommendation = decompress_pickle(
+    "data/hotel/AB_Hotel_Recommendation.pbz2")
 hotel_state_rec_map['AB'] = AB_Hotel_Recommendation
 print("Loading Hotel Data Files Completed...")
 print(datetime.datetime.now())
@@ -117,34 +127,34 @@ restaurent_state_rec_map = {}
 print("Loading Restaurent Data Files...")
 print(datetime.datetime.now())
 PA_Restaurent_Recommendation = decompress_pickle(
-    "PA_Restaurent_Recommendation.pbz2")
+    "data/restaurent/PA_Restaurent_Recommendation.pbz2")
 restaurent_state_rec_map['PA'] = PA_Restaurent_Recommendation
 FL_Restaurent_Recommendation = decompress_pickle(
-    "FL_Restaurent_Recommendation.pbz2")
+    "data/restaurent/FL_Restaurent_Recommendation.pbz2")
 restaurent_state_rec_map['FL'] = FL_Restaurent_Recommendation
 TN_Restaurent_Recommendation = decompress_pickle(
-    "TN_Restaurent_Recommendation.pbz2")
+    "data/restaurent/TN_Restaurent_Recommendation.pbz2")
 restaurent_state_rec_map['TN'] = TN_Restaurent_Recommendation
 IN_Restaurent_Recommendation = decompress_pickle(
-    "IN_Restaurent_Recommendation.pbz2")
+    "data/restaurent/IN_Restaurent_Recommendation.pbz2")
 restaurent_state_rec_map['IN'] = IN_Restaurent_Recommendation
 MO_Restaurent_Recommendation = decompress_pickle(
-    "MO_Restaurent_Recommendation.pbz2")
+    "data/restaurent/MO_Restaurent_Recommendation.pbz2")
 restaurent_state_rec_map['MO'] = MO_Restaurent_Recommendation
 LA_Restaurent_Recommendation = decompress_pickle(
-    "LA_Restaurent_Recommendation.pbz2")
+    "data/restaurent/LA_Restaurent_Recommendation.pbz2")
 restaurent_state_rec_map['LA'] = LA_Restaurent_Recommendation
 AZ_Restaurent_Recommendation = decompress_pickle(
-    "AZ_Restaurent_Recommendation.pbz2")
+    "data/restaurent/AZ_Restaurent_Recommendation.pbz2")
 restaurent_state_rec_map['AZ'] = AZ_Restaurent_Recommendation
 NJ_Restaurent_Recommendation = decompress_pickle(
-    "NJ_Restaurent_Recommendation.pbz2")
+    "data/restaurent/NJ_Restaurent_Recommendation.pbz2")
 restaurent_state_rec_map['NJ'] = NJ_Restaurent_Recommendation
 NV_Restaurent_Recommendation = decompress_pickle(
-    "NV_Restaurent_Recommendation.pbz2")
+    "data/restaurent/NV_Restaurent_Recommendation.pbz2")
 restaurent_state_rec_map['NV'] = NV_Restaurent_Recommendation
 AB_Restaurent_Recommendation = decompress_pickle(
-    "AB_Restaurent_Recommendation.pbz2")
+    "data/restaurent/AB_Restaurent_Recommendation.pbz2")
 restaurent_state_rec_map['AB'] = AB_Restaurent_Recommendation
 print("Loading Restaurent Data Files Completed...")
 print(datetime.datetime.now())
@@ -153,25 +163,25 @@ print("\n")
 hotel_mf_map = {}
 print("Loading Hotel MF Files...")
 print(datetime.datetime.now())
-PA_Hotel_MF = decompress_pickle("PA_Hotel_MF.pbz2")
+PA_Hotel_MF = decompress_pickle("data/hotel/PA_Hotel_MF.pbz2")
 hotel_mf_map['PA'] = PA_Hotel_MF
-FL_Hotel_MF = decompress_pickle("FL_Hotel_MF.pbz2")
+FL_Hotel_MF = decompress_pickle("data/hotel/FL_Hotel_MF.pbz2")
 hotel_mf_map['FL'] = FL_Hotel_MF
-TN_Hotel_MF = decompress_pickle("TN_Hotel_MF.pbz2")
+TN_Hotel_MF = decompress_pickle("data/hotel/TN_Hotel_MF.pbz2")
 hotel_mf_map['TN'] = TN_Hotel_MF
-IN_Hotel_MF = decompress_pickle("IN_Hotel_MF.pbz2")
+IN_Hotel_MF = decompress_pickle("data/hotel/IN_Hotel_MF.pbz2")
 hotel_mf_map['IN'] = IN_Hotel_MF
-MO_Hotel_MF = decompress_pickle("MO_Hotel_MF.pbz2")
+MO_Hotel_MF = decompress_pickle("data/hotel/MO_Hotel_MF.pbz2")
 hotel_mf_map['MO'] = MO_Hotel_MF
-LA_Hotel_MF = decompress_pickle("LA_Hotel_MF.pbz2")
+LA_Hotel_MF = decompress_pickle("data/hotel/LA_Hotel_MF.pbz2")
 hotel_mf_map['LA'] = LA_Hotel_MF
-AZ_Hotel_MF = decompress_pickle("AZ_Hotel_MF.pbz2")
+AZ_Hotel_MF = decompress_pickle("data/hotel/AZ_Hotel_MF.pbz2")
 hotel_mf_map['AZ'] = AZ_Hotel_MF
-NJ_Hotel_MF = decompress_pickle("NJ_Hotel_MF.pbz2")
+NJ_Hotel_MF = decompress_pickle("data/hotel/NJ_Hotel_MF.pbz2")
 hotel_mf_map['NJ'] = NJ_Hotel_MF
-NV_Hotel_MF = decompress_pickle("NV_Hotel_MF.pbz2")
+NV_Hotel_MF = decompress_pickle("data/hotel/NV_Hotel_MF.pbz2")
 hotel_mf_map['NV'] = NV_Hotel_MF
-AB_Hotel_MF = decompress_pickle("AB_Hotel_MF.pbz2")
+AB_Hotel_MF = decompress_pickle("data/hotel/AB_Hotel_MF.pbz2")
 hotel_mf_map['AB'] = AB_Hotel_MF
 print("Loading Hotel MF Files Completed...")
 print(datetime.datetime.now())
@@ -181,34 +191,34 @@ restaurent_mf_map = {}
 print("Loading Restaurent MF Files...")
 print(datetime.datetime.now())
 PA_Restaurent_MF = decompress_pickle(
-    "PA_Restaurent_MF.pbz2")
+    "data/restaurent/PA_Restaurent_MF.pbz2")
 restaurent_mf_map['PA'] = PA_Restaurent_MF
 FL_Restaurent_MF = decompress_pickle(
-    "FL_Restaurent_MF.pbz2")
+    "data/restaurent/FL_Restaurent_MF.pbz2")
 restaurent_mf_map['FL'] = FL_Restaurent_MF
 TN_Restaurent_MF = decompress_pickle(
-    "TN_Restaurent_MF.pbz2")
+    "data/restaurent/TN_Restaurent_MF.pbz2")
 restaurent_mf_map['TN'] = TN_Restaurent_MF
 IN_Restaurent_MF = decompress_pickle(
-    "IN_Restaurent_MF.pbz2")
+    "data/restaurent/IN_Restaurent_MF.pbz2")
 restaurent_mf_map['IN'] = IN_Restaurent_MF
 MO_Restaurent_MF = decompress_pickle(
-    "MO_Restaurent_MF.pbz2")
+    "data/restaurent/MO_Restaurent_MF.pbz2")
 restaurent_mf_map['MO'] = MO_Restaurent_MF
 LA_Restaurent_MF = decompress_pickle(
-    "LA_Restaurent_MF.pbz2")
+    "data/restaurent/LA_Restaurent_MF.pbz2")
 restaurent_mf_map['LA'] = LA_Restaurent_MF
 AZ_Restaurent_MF = decompress_pickle(
-    "AZ_Restaurent_MF.pbz2")
+    "data/restaurent/AZ_Restaurent_MF.pbz2")
 restaurent_mf_map['AZ'] = AZ_Restaurent_MF
 NJ_Restaurent_MF = decompress_pickle(
-    "NJ_Restaurent_MF.pbz2")
+    "data/restaurent/NJ_Restaurent_MF.pbz2")
 restaurent_mf_map['NJ'] = NJ_Restaurent_MF
 NV_Restaurent_MF = decompress_pickle(
-    "NV_Restaurent_MF.pbz2")
+    "data/restaurent/NV_Restaurent_MF.pbz2")
 restaurent_mf_map['NV'] = NV_Restaurent_MF
 AB_Restaurent_MF = decompress_pickle(
-    "AB_Restaurent_MF.pbz2")
+    "data/restaurent/AB_Restaurent_MF.pbz2")
 restaurent_mf_map['AB'] = AB_Restaurent_MF
 print("Loading Restaurent MF Files Completed...")
 print(datetime.datetime.now())
@@ -219,34 +229,34 @@ hotel_aecf_map = {}
 print("Loading Hotel AECF Files...")
 print(datetime.datetime.now())
 PA_Hotel_AECF = decompress_pickle(
-    "PA_Hotel_AECF.pbz2")
+    "data/hotel/PA_Hotel_AECF.pbz2")
 hotel_aecf_map['PA'] = PA_Hotel_AECF
 FL_Hotel_AECF = decompress_pickle(
-    "FL_Hotel_AECF.pbz2")
+    "data/hotel/FL_Hotel_AECF.pbz2")
 hotel_aecf_map['FL'] = FL_Hotel_AECF
 TN_Hotel_AECF = decompress_pickle(
-    "TN_Hotel_AECF.pbz2")
+    "data/hotel/TN_Hotel_AECF.pbz2")
 hotel_aecf_map['TN'] = TN_Hotel_AECF
 IN_Hotel_AECF = decompress_pickle(
-    "IN_Hotel_AECF.pbz2")
+    "data/hotel/IN_Hotel_AECF.pbz2")
 hotel_aecf_map['IN'] = IN_Hotel_AECF
 MO_Hotel_AECF = decompress_pickle(
-    "MO_Hotel_AECF.pbz2")
+    "data/hotel/MO_Hotel_AECF.pbz2")
 hotel_aecf_map['MO'] = MO_Hotel_AECF
 LA_Hotel_AECF = decompress_pickle(
-    "LA_Hotel_AECF.pbz2")
+    "data/hotel/LA_Hotel_AECF.pbz2")
 hotel_aecf_map['LA'] = LA_Hotel_AECF
 AZ_Hotel_AECF = decompress_pickle(
-    "AZ_Hotel_AECF.pbz2")
+    "data/hotel/AZ_Hotel_AECF.pbz2")
 hotel_aecf_map['AZ'] = AZ_Hotel_AECF
 NJ_Hotel_AECF = decompress_pickle(
-    "NJ_Hotel_AECF.pbz2")
+    "data/hotel/NJ_Hotel_AECF.pbz2")
 hotel_aecf_map['NJ'] = NJ_Hotel_AECF
 NV_Hotel_AECF = decompress_pickle(
-    "NV_Hotel_AECF.pbz2")
+    "data/hotel/NV_Hotel_AECF.pbz2")
 hotel_aecf_map['NV'] = NV_Hotel_AECF
 AB_Hotel_AECF = decompress_pickle(
-    "AB_Hotel_AECF.pbz2")
+    "data/hotel/AB_Hotel_AECF.pbz2")
 hotel_aecf_map['AB'] = AB_Hotel_AECF
 print("Loading Hotel AECF Files Completed...")
 print(datetime.datetime.now())
@@ -256,34 +266,34 @@ restaurent_aecf_map = {}
 print("Loading Restaurent AECF Files...")
 print(datetime.datetime.now())
 PA_Restaurent_AECF = decompress_pickle(
-    "PA_Restaurent_AECF.pbz2")
+    "data/restaurent/PA_Restaurent_AECF.pbz2")
 restaurent_aecf_map['PA'] = PA_Restaurent_AECF
 FL_Restaurent_AECF = decompress_pickle(
-    "FL_Restaurent_AECF.pbz2")
+    "data/restaurent/FL_Restaurent_AECF.pbz2")
 restaurent_aecf_map['FL'] = FL_Restaurent_AECF
 TN_Restaurent_AECF = decompress_pickle(
-    "TN_Restaurent_AECF.pbz2")
+    "data/restaurent/TN_Restaurent_AECF.pbz2")
 restaurent_aecf_map['TN'] = TN_Restaurent_AECF
 IN_Restaurent_AECF = decompress_pickle(
-    "IN_Restaurent_AECF.pbz2")
+    "data/restaurent/IN_Restaurent_AECF.pbz2")
 restaurent_aecf_map['IN'] = IN_Restaurent_AECF
 MO_Restaurent_AECF = decompress_pickle(
-    "MO_Restaurent_AECF.pbz2")
+    "data/restaurent/MO_Restaurent_AECF.pbz2")
 restaurent_aecf_map['MO'] = MO_Restaurent_AECF
 LA_Restaurent_AECF = decompress_pickle(
-    "LA_Restaurent_AECF.pbz2")
+    "data/restaurent/LA_Restaurent_AECF.pbz2")
 restaurent_aecf_map['LA'] = LA_Restaurent_AECF
 AZ_Restaurent_AECF = decompress_pickle(
-    "AZ_Restaurent_AECF.pbz2")
+    "data/restaurent/AZ_Restaurent_AECF.pbz2")
 restaurent_aecf_map['AZ'] = AZ_Restaurent_AECF
 NJ_Restaurent_AECF = decompress_pickle(
-    "NJ_Restaurent_AECF.pbz2")
+    "data/restaurent/NJ_Restaurent_AECF.pbz2")
 restaurent_aecf_map['NJ'] = NJ_Restaurent_AECF
 NV_Restaurent_AECF = decompress_pickle(
-    "NV_Restaurent_AECF.pbz2")
+    "data/restaurent/NV_Restaurent_AECF.pbz2")
 restaurent_aecf_map['NV'] = NV_Restaurent_AECF
 AB_Restaurent_AECF = decompress_pickle(
-    "AB_Restaurent_AECF.pbz2")
+    "data/restaurent/AB_Restaurent_AECF.pbz2")
 restaurent_aecf_map['AB'] = AB_Restaurent_AECF
 print("Loading Restaurent AECF Files Completed...")
 print(datetime.datetime.now())
