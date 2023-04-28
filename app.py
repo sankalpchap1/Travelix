@@ -158,6 +158,70 @@ print("Loading Restaurent Data Files Completed...")
 print(datetime.datetime.now())
 print("\n")
 
+hotel_mf_map = {}
+print("Loading Hotel MF Files...")
+print(datetime.datetime.now())
+PA_Hotel_MF = decompress_pickle("PA_Hotel_MF.pbz2")
+hotel_mf_map['PA'] = PA_Hotel_MF
+FL_Hotel_MF = decompress_pickle("FL_Hotel_MF.pbz2")
+hotel_mf_map['FL'] = FL_Hotel_MF
+TN_Hotel_MF = decompress_pickle("TN_Hotel_MF.pbz2")
+hotel_mf_map['TN'] = TN_Hotel_MF
+IN_Hotel_MF = decompress_pickle("IN_Hotel_MF.pbz2")
+hotel_mf_map['IN'] = IN_Hotel_MF
+MO_Hotel_MF = decompress_pickle("MO_Hotel_MF.pbz2")
+hotel_mf_map['MO'] = MO_Hotel_MF
+LA_Hotel_MF = decompress_pickle("LA_Hotel_MF.pbz2")
+hotel_mf_map['LA'] = LA_Hotel_MF
+AZ_Hotel_MF = decompress_pickle("AZ_Hotel_MF.pbz2")
+hotel_mf_map['AZ'] = AZ_Hotel_MF
+NJ_Hotel_MF = decompress_pickle("NJ_Hotel_MF.pbz2")
+hotel_mf_map['NJ'] = NJ_Hotel_MF
+NV_Hotel_MF = decompress_pickle("NV_Hotel_MF.pbz2")
+hotel_mf_map['NV'] = NV_Hotel_MF
+AB_Hotel_MF = decompress_pickle("AB_Hotel_MF.pbz2")
+hotel_mf_map['AB'] = AB_Hotel_MF
+print("Loading Hotel MF Files Completed...")
+print(datetime.datetime.now())
+print("\n")
+
+restaurent_mf_map = {}
+print("Loading Restaurent MF Files...")
+print(datetime.datetime.now())
+PA_Restaurent_MF = decompress_pickle(
+    "PA_Restaurent_MF.pbz2")
+restaurent_mf_map['PA'] = PA_Restaurent_MF
+FL_Restaurent_MF = decompress_pickle(
+    "FL_Restaurent_MF.pbz2")
+restaurent_mf_map['FL'] = FL_Restaurent_MF
+TN_Restaurent_MF = decompress_pickle(
+    "TN_Restaurent_MF.pbz2")
+restaurent_mf_map['TN'] = TN_Restaurent_MF
+IN_Restaurent_MF = decompress_pickle(
+    "IN_Restaurent_MF.pbz2")
+restaurent_mf_map['IN'] = IN_Restaurent_MF
+MO_Restaurent_MF = decompress_pickle(
+    "MO_Restaurent_MF.pbz2")
+restaurent_mf_map['MO'] = MO_Restaurent_MF
+LA_Restaurent_MF = decompress_pickle(
+    "LA_Restaurent_MF.pbz2")
+restaurent_mf_map['LA'] = LA_Restaurent_MF
+AZ_Restaurent_MF = decompress_pickle(
+    "AZ_Restaurent_MF.pbz2")
+restaurent_mf_map['AZ'] = AZ_Restaurent_MF
+NJ_Restaurent_MF = decompress_pickle(
+    "NJ_Restaurent_MF.pbz2")
+restaurent_mf_map['NJ'] = NJ_Restaurent_MF
+NV_Restaurent_MF = decompress_pickle(
+    "NV_Restaurent_MF.pbz2")
+restaurent_mf_map['NV'] = NV_Restaurent_MF
+AB_Restaurent_MF = decompress_pickle(
+    "AB_Restaurent_MF.pbz2")
+restaurent_mf_map['AB'] = AB_Restaurent_MF
+print("Loading Restaurent MF Files Completed...")
+print(datetime.datetime.now())
+print("\n")
+
 # Write APIs here
 
 
@@ -179,7 +243,7 @@ def serve():
 
 @app.route('/<string:rec_type>/<string:state_name>/<int:user_id>/getNPR')
 @cross_origin()
-def getRecommendation(rec_type, state_name, user_id):
+def getNPRRecommendation(rec_type, state_name, user_id):
     global hotel_state_rec_map
     global restaurent_state_rec_map
     rec = hotel_state_rec_map[state_name] if rec_type == "hotel" else restaurent_state_rec_map[state_name]
@@ -188,5 +252,29 @@ def getRecommendation(rec_type, state_name, user_id):
         [{'name': business.name, 'address': business.address, 'city': business.city, 'state': business.state, 'postal_code': business.postal_code, 'stars': business.stars} for business in business_list])
 
 
+@app.route('/<string:rec_type>/<string:state_name>/<int:user_id>/getMF')
+@cross_origin()
+def getMFRecommendation(rec_type, state_name, user_id):
+    global hotel_mf_map
+    global restaurent_mf_map
+    global hotel_state_rec_map
+    global restaurent_state_rec_map
+    mf_recommendations = hotel_mf_map[state_name] if rec_type == "hotel" else restaurent_mf_map[state_name]
+    recommendations_class = hotel_state_rec_map[
+        state_name] if rec_type == "hotel" else restaurent_state_rec_map[state_name]
+
+    business_ids = mf_recommendations[user_id][:12]
+
+    business_list = []
+    for i in range(12):
+        business_hash = recommendations_class.getBusinessHashFromBusinessNum(
+            business_ids[i])
+        business = recommendations_class.getBusinessInfo(business_hash)
+        business_list.append(business)
+
+    return json.dumps(
+        [{'name': business.name, 'address': business.address, 'city': business.city, 'state': business.state, 'postal_code': business.postal_code, 'stars': business.stars} for business in business_list])
+
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=False)
+    app.run(debug=False)
