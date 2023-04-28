@@ -138,12 +138,12 @@ function App() {
           {/* <a href="#home">Restaurants</a>
           <a href="#tvShows">Hotels</a>
           <a href="#movies">Shopping</a> */}
-          <Box sx={{ width: '100%' }}>
+          <Box sx={{ width: '100%' ,marginTop: "10px"}}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <Tabs value={value} onChange={handleChangeType} aria-label="basic tabs example">
-                <Tab label="Hotels" {...a11yProps(0)} />
-                <Tab label="Restaurants" {...a11yProps(1)} />
-                <Tab label="Shopping" {...a11yProps(2)} />
+                <Tab sx={{color : "white" }} label="Hotels" {...a11yProps(0)} />
+                <Tab sx={{color : "white"}} label="Restaurants" {...a11yProps(1)} />
+                <Tab sx={{color : "white"}} label="Shopping" {...a11yProps(2)} />
               </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
@@ -183,24 +183,29 @@ function App() {
 
 
 
-        <h1 id="tvShows">CF Recommendations</h1>
-        <div class="box">
-          <a style={{ textDecoration: 'none' }} href="">
-            <div class="tile" style={{ backgroundColor: '#B3E5FC' }}>
-              <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p12.PNG?raw=true" alt="Hotel Image" />
-              <div class="hotel-title">
-                <h3>Radisson Blue</h3>
-              </div>
-            </div>
-          </a>
-          <a style={{ textDecoration: 'none' }} href="">
-            <div class="tile" style={{ backgroundColor: '#B3E5FC' }}>
-              <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv1.PNG?raw=true" alt="Hotel Image" />
-              <div class="hotel-title">
-                <h3>Radisson Blue</h3>
-              </div>
-            </div>
-          </a>
+      <h1 id="tvShows">CF Recommendations</h1>
+      <div class="box">
+
+        <ActionAreaCard business ={"business"} />
+
+        <a style={{textDecoration: 'none'}} href="">
+                <div class="tile" style={{backgroundColor: '#CCCCCC'}}>
+                <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p12.PNG?raw=true" alt="Hotel Image"/>
+                <div class="hotel-title">
+                    <p> <h3>Radisson Blue</h3>
+                    This hotel is located in Texas near College Station. <br/> Rating : 5.0</p>
+                </div>
+                </div>
+             </a>
+
+        <a style={{textDecoration: 'none'}} href="">
+                <div class="tile" style={{backgroundColor: '#B3E5FC'}}>
+                <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv1.PNG?raw=true" alt="Hotel Image"/>
+                <div class="hotel-title">
+                    <h3>Radisson Blue</h3>
+                </div>
+                </div>
+         </a>
 
           <a style={{ textDecoration: 'none' }} href="">
             <div class="tile" style={{ backgroundColor: '#B3E5FC' }}>
