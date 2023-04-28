@@ -6,6 +6,7 @@ import pickle
 import datetime
 from Recommendations import Recommendations
 from Business import Business
+# from AECF import AC_EF
 import bz2file as bz2
 # print("pickle version"+pickle.format_version)
 
@@ -214,79 +215,79 @@ print(datetime.datetime.now())
 print("\n")
 
 
-hotel_aecf_map = {}
-print("Loading Hotel AECF Files...")
-print(datetime.datetime.now())
-PA_Hotel_AECF = decompress_pickle(
-    "PA_Hotel_AECF.pbz2")
-hotel_aecf_map['PA'] = PA_Hotel_AECF
-FL_Hotel_AECF = decompress_pickle(
-    "FL_Hotel_AECF.pbz2")
-hotel_aecf_map['FL'] = FL_Hotel_AECF
-TN_Hotel_AECF = decompress_pickle(
-    "TN_Hotel_AECF.pbz2")
-hotel_aecf_map['TN'] = TN_Hotel_AECF
-IN_Hotel_AECF = decompress_pickle(
-    "IN_Hotel_AECF.pbz2")
-hotel_aecf_map['IN'] = IN_Hotel_AECF
-MO_Hotel_AECF = decompress_pickle(
-    "MO_Hotel_AECF.pbz2")
-hotel_aecf_map['MO'] = MO_Hotel_AECF
-LA_Hotel_AECF = decompress_pickle(
-    "LA_Hotel_AECF.pbz2")
-hotel_aecf_map['LA'] = LA_Hotel_AECF
-AZ_Hotel_AECF = decompress_pickle(
-    "AZ_Hotel_AECF.pbz2")
-hotel_aecf_map['AZ'] = AZ_Hotel_AECF
-NJ_Hotel_AECF = decompress_pickle(
-    "NJ_Hotel_AECF.pbz2")
-hotel_aecf_map['NJ'] = NJ_Hotel_AECF
-NV_Hotel_AECF = decompress_pickle(
-    "NV_Hotel_AECF.pbz2")
-hotel_aecf_map['NV'] = NV_Hotel_AECF
-AB_Hotel_AECF = decompress_pickle(
-    "AB_Hotel_AECF.pbz2")
-hotel_aecf_map['AB'] = AB_Hotel_AECF
-print("Loading Hotel AECF Files Completed...")
-print(datetime.datetime.now())
-print("\n")
+# hotel_aecf_map = {}
+# print("Loading Hotel AECF Files...")
+# print(datetime.datetime.now())
+# PA_Hotel_AECF = decompress_pickle(
+#     "PA_Hotel_AECF.pbz2")
+# hotel_aecf_map['PA'] = PA_Hotel_AECF
+# FL_Hotel_AECF = decompress_pickle(
+#     "FL_Hotel_AECF.pbz2")
+# hotel_aecf_map['FL'] = FL_Hotel_AECF
+# TN_Hotel_AECF = decompress_pickle(
+#     "TN_Hotel_AECF.pbz2")
+# hotel_aecf_map['TN'] = TN_Hotel_AECF
+# IN_Hotel_AECF = decompress_pickle(
+#     "IN_Hotel_AECF.pbz2")
+# hotel_aecf_map['IN'] = IN_Hotel_AECF
+# MO_Hotel_AECF = decompress_pickle(
+#     "MO_Hotel_AECF.pbz2")
+# hotel_aecf_map['MO'] = MO_Hotel_AECF
+# LA_Hotel_AECF = decompress_pickle(
+#     "LA_Hotel_AECF.pbz2")
+# hotel_aecf_map['LA'] = LA_Hotel_AECF
+# AZ_Hotel_AECF = decompress_pickle(
+#     "AZ_Hotel_AECF.pbz2")
+# hotel_aecf_map['AZ'] = AZ_Hotel_AECF
+# NJ_Hotel_AECF = decompress_pickle(
+#     "NJ_Hotel_AECF.pbz2")
+# hotel_aecf_map['NJ'] = NJ_Hotel_AECF
+# NV_Hotel_AECF = decompress_pickle(
+#     "NV_Hotel_AECF.pbz2")
+# hotel_aecf_map['NV'] = NV_Hotel_AECF
+# AB_Hotel_AECF = decompress_pickle(
+#     "AB_Hotel_AECF.pbz2")
+# hotel_aecf_map['AB'] = AB_Hotel_AECF
+# print("Loading Hotel AECF Files Completed...")
+# print(datetime.datetime.now())
+# print("\n")
 
-restaurent_aecf_map = {}
-print("Loading Restaurent AECF Files...")
-print(datetime.datetime.now())
-PA_Restaurent_AECF = decompress_pickle(
-    "PA_Restaurent_AECF.pbz2")
-restaurent_aecf_map['PA'] = PA_Restaurent_AECF
-FL_Restaurent_AECF = decompress_pickle(
-    "FL_Restaurent_AECF.pbz2")
-restaurent_aecf_map['FL'] = FL_Restaurent_AECF
-TN_Restaurent_AECF = decompress_pickle(
-    "TN_Restaurent_AECF.pbz2")
-restaurent_aecf_map['TN'] = TN_Restaurent_AECF
-IN_Restaurent_AECF = decompress_pickle(
-    "IN_Restaurent_AECF.pbz2")
-restaurent_aecf_map['IN'] = IN_Restaurent_AECF
-MO_Restaurent_AECF = decompress_pickle(
-    "MO_Restaurent_AECF.pbz2")
-restaurent_aecf_map['MO'] = MO_Restaurent_AECF
-LA_Restaurent_AECF = decompress_pickle(
-    "LA_Restaurent_AECF.pbz2")
-restaurent_aecf_map['LA'] = LA_Restaurent_AECF
-AZ_Restaurent_AECF = decompress_pickle(
-    "AZ_Restaurent_AECF.pbz2")
-restaurent_aecf_map['AZ'] = AZ_Restaurent_AECF
-NJ_Restaurent_AECF = decompress_pickle(
-    "NJ_Restaurent_AECF.pbz2")
-restaurent_aecf_map['NJ'] = NJ_Restaurent_AECF
-NV_Restaurent_AECF = decompress_pickle(
-    "NV_Restaurent_AECF.pbz2")
-restaurent_aecf_map['NV'] = NV_Restaurent_AECF
-AB_Restaurent_AECF = decompress_pickle(
-    "AB_Restaurent_AECF.pbz2")
-restaurent_aecf_map['AB'] = AB_Restaurent_AECF
-print("Loading Restaurent AECF Files Completed...")
-print(datetime.datetime.now())
-print("\n")
+# restaurent_aecf_map = {}
+# print("Loading Restaurent AECF Files...")
+# print(datetime.datetime.now())
+# PA_Restaurent_AECF = decompress_pickle(
+#     "PA_Restaurent_AECF.pbz2")
+# restaurent_aecf_map['PA'] = PA_Restaurent_AECF
+# FL_Restaurent_AECF = decompress_pickle(
+#     "FL_Restaurent_AECF.pbz2")
+# restaurent_aecf_map['FL'] = FL_Restaurent_AECF
+# TN_Restaurent_AECF = decompress_pickle(
+#     "TN_Restaurent_AECF.pbz2")
+# restaurent_aecf_map['TN'] = TN_Restaurent_AECF
+# IN_Restaurent_AECF = decompress_pickle(
+#     "IN_Restaurent_AECF.pbz2")
+# restaurent_aecf_map['IN'] = IN_Restaurent_AECF
+# MO_Restaurent_AECF = decompress_pickle(
+#     "MO_Restaurent_AECF.pbz2")
+# restaurent_aecf_map['MO'] = MO_Restaurent_AECF
+# LA_Restaurent_AECF = decompress_pickle(
+#     "LA_Restaurent_AECF.pbz2")
+# restaurent_aecf_map['LA'] = LA_Restaurent_AECF
+# AZ_Restaurent_AECF = decompress_pickle(
+#     "AZ_Restaurent_AECF.pbz2")
+# restaurent_aecf_map['AZ'] = AZ_Restaurent_AECF
+# NJ_Restaurent_AECF = decompress_pickle(
+#     "NJ_Restaurent_AECF.pbz2")
+# restaurent_aecf_map['NJ'] = NJ_Restaurent_AECF
+# NV_Restaurent_AECF = decompress_pickle(
+#     "NV_Restaurent_AECF.pbz2")
+# restaurent_aecf_map['NV'] = NV_Restaurent_AECF
+# AB_Restaurent_AECF = decompress_pickle(
+#     "AB_Restaurent_AECF.pbz2")
+# restaurent_aecf_map['AB'] = AB_Restaurent_AECF
+# print("Loading Restaurent AECF Files Completed...")
+# print(datetime.datetime.now())
+# print("\n")
 
 
 # Write APIs here
@@ -345,6 +346,7 @@ def getMFRecommendation(rec_type, state_name, user_id):
     return json.dumps(
         [{'name': business.name, 'address': business.address, 'city': business.city, 'state': business.state, 'postal_code': business.postal_code, 'stars': business.stars} for business in business_list])
 
+
 @app.route('/<string:rec_type>/<string:state_name>/<int:user_id>/getAECF')
 @cross_origin()
 def getAECFRecommendation(rec_type, state_name, user_id):
@@ -358,7 +360,6 @@ def getAECFRecommendation(rec_type, state_name, user_id):
     elif rec_type == "restaurent":
         aecf_recommendations = restaurent_aecf_map[state_name]
         recommendations_class = restaurent_state_rec_map[state_name]
-    
 
     business_ids = aecf_recommendations.get_user_recommendation(user_id)
 
