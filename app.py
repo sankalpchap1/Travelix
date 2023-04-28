@@ -111,7 +111,7 @@ def decompress_pickle(file):
 # loadCSV()
 # getTopStates()
 hotel_state_rec_map = {}
-print("Loading Data Files...")
+print("Loading Hotel Data Files...")
 print(datetime.datetime.now())
 PA_Hotel_Recommendation = decompress_pickle("PA_Hotel_Recommendation.pbz2")
 hotel_state_rec_map['PA'] = PA_Hotel_Recommendation
@@ -133,16 +133,54 @@ NV_Hotel_Recommendation = decompress_pickle("NV_Hotel_Recommendation.pbz2")
 hotel_state_rec_map['NV'] = NV_Hotel_Recommendation
 AB_Hotel_Recommendation = decompress_pickle("AB_Hotel_Recommendation.pbz2")
 hotel_state_rec_map['AB'] = AB_Hotel_Recommendation
-print("Loading Data Files Completed...")
+print("Loading Hotel Data Files Completed...")
+print(datetime.datetime.now())
+print("\n")
+
+restaurent_state_rec_map = {}
+print("Loading Restaurent Data Files...")
+print(datetime.datetime.now())
+# PA_Restaurent_Recommendation = decompress_pickle("PA_Restaurent_Recommendation.pbz2")
+# restaurent_state_rec_map['PA'] = PA_Restaurent_Recommendation
+FL_Restaurent_Recommendation = decompress_pickle(
+    "FL_Restaurent_Recommendation.pbz2")
+restaurent_state_rec_map['FL'] = FL_Restaurent_Recommendation
+TN_Restaurent_Recommendation = decompress_pickle(
+    "TN_Restaurent_Recommendation.pbz2")
+restaurent_state_rec_map['TN'] = TN_Restaurent_Recommendation
+IN_Restaurent_Recommendation = decompress_pickle(
+    "IN_Restaurent_Recommendation.pbz2")
+restaurent_state_rec_map['IN'] = IN_Restaurent_Recommendation
+MO_Restaurent_Recommendation = decompress_pickle(
+    "MO_Restaurent_Recommendation.pbz2")
+restaurent_state_rec_map['MO'] = MO_Restaurent_Recommendation
+LA_Restaurent_Recommendation = decompress_pickle(
+    "LA_Restaurent_Recommendation.pbz2")
+restaurent_state_rec_map['LA'] = LA_Restaurent_Recommendation
+AZ_Restaurent_Recommendation = decompress_pickle(
+    "AZ_Restaurent_Recommendation.pbz2")
+restaurent_state_rec_map['AZ'] = AZ_Restaurent_Recommendation
+NJ_Restaurent_Recommendation = decompress_pickle(
+    "NJ_Restaurent_Recommendation.pbz2")
+restaurent_state_rec_map['NJ'] = NJ_Restaurent_Recommendation
+NV_Restaurent_Recommendation = decompress_pickle(
+    "NV_Restaurent_Recommendation.pbz2")
+restaurent_state_rec_map['NV'] = NV_Restaurent_Recommendation
+AB_Restaurent_Recommendation = decompress_pickle(
+    "AB_Restaurent_Recommendation.pbz2")
+restaurent_state_rec_map['AB'] = AB_Restaurent_Recommendation
+print("Loading Restaurent Data Files Completed...")
 print(datetime.datetime.now())
 print("\n")
 
 
-@app.route('/<string:state_name>/<int:user_id>/getNPR')
+@app.route('/<string:rec_type>/<string:state_name>/<int:user_id>/getNPR')
 @cross_origin()
-def getRecommendation(state_name, user_id):
+def getRecommendation(rec_type, state_name, user_id):
     global hotel_state_rec_map
-    business_list = hotel_state_rec_map[state_name].getNPRForuUser(user_id)
+    global restaurent_state_rec_map
+    rec = hotel_state_rec_map[state_name] if rec_type == "hotel" else restaurent_state_rec_map[state_name]
+    business_list = rec.getNPRForuUser(user_id)
     response = json.dumps(
         [{'name': business.name, 'address': business.address, 'city': business.city, 'state': business.state, 'postal_code': business.postal_code, 'stars': business.stars} for business in business_list])
     print(response)
