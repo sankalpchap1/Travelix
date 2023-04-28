@@ -6,10 +6,12 @@ from Business import Business
 
 
 class Recommendations:
-    def __init__(self, business_df, reviews_df):
+    def __init__(self, business_df, reviews_df, state_name, shorten=False):
+        print(f"========Calculating For {state_name} State========")
         self.business_df = business_df
         self.reviews_df = reviews_df
         self.ratings_mat = []
+        self.shorten = shorten if isinstance(shorten, bool) else False
         self.user_num_to_user_hash_dict = dict()
         self.user_hash_to_user_num_dict = dict()
         self.business_num_to_business_hash_dict = dict()
@@ -24,6 +26,20 @@ class Recommendations:
         business_list = list(self.business_df['business_id'])
         reviews_df_updated = self.reviews_df[self.reviews_df['business_id'].isin(
             business_list)]
+
+        if (self.shorten):
+            print(f"Size Before Cutting Down: {reviews_df_updated.shape[0]}")
+            user_counts = reviews_df_updated.groupby(
+                'user_id').size().reset_index(name='count')
+
+            # Sort the user_counts dataframe in descending order by count and select the top 100 user_ids
+            top_users = user_counts.sort_values(by='count', ascending=False).head(100)[
+                'user_id'].tolist()
+
+            # Filter the original dataframe to keep only the records that belong to the top 100 user_ids
+            reviews_df_updated = reviews_df_updated[reviews_df_updated['user_id'].isin(
+                top_users)]
+            print(f"Size After Cutting Down: {reviews_df_updated.shape[0]}")
 
         unique_business_id = reviews_df_updated['business_id'].unique()
         unique_user_id = reviews_df_updated['user_id'].unique()
@@ -54,6 +70,8 @@ class Recommendations:
 
         self.ratings_mat = coo_matrix((reviews_df_updated['stars'].values, (reviews_df_updated['user_id'].values,
                                       reviews_df_updated['business_id'].values)), shape=(num_user, num_movie)).astype(float).toarray()
+        print(
+            f"Size of Ratings Matrix: {self.ratings_mat.shape[0]}, {self.ratings_mat.shape[1]}")
 
     def nonPersonalizedRecommendations(self):
         print("Calculating NPR...")
@@ -74,22 +92,14 @@ class Recommendations:
             self.business_recommendations[u] = business_unvisited[np.argsort(
                 unwatched_popularity)[::-1]][:50]
 
-        # print("Non personalized recommendations for first User:")
-        # for i in range(5):
-        #   business_hash = self.getBusinessHashFromBusinessNum(self.business_recommendations[0,i])
-        #   business = self.getBusinessInfo(business_hash)
-        #   print(f"Rank {i+1}: Business {self.business_recommendations[0,i]} - Name: {business.name} - state: {business.state} - stars: {business.stars}  - Popularity {business_popularity[self.business_recommendations[0,i]]}")
-
     def getNPRForuUser(self, user_num):
         print(f"Non personalized recommendations for User {user_num}:")
         business_list = []
-        for i in range(5):
+        for i in range(12):
             business_hash = self.getBusinessHashFromBusinessNum(
                 self.business_recommendations[0, i])
             business = self.getBusinessInfo(business_hash)
             business_list.append(business)
-            print(
-                f"Rank {i+1}: Business {self.business_recommendations[0,i]} - Name: {business.name} - state: {business.state} - stars: {business.stars}  - Popularity {self.business_popularity[self.business_recommendations[0,i]]}")
         return business_list
 
     def getUserHashFromUserNum(self, user_num):

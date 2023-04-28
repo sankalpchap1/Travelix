@@ -140,8 +140,9 @@ print("\n")
 restaurent_state_rec_map = {}
 print("Loading Restaurent Data Files...")
 print(datetime.datetime.now())
-# PA_Restaurent_Recommendation = decompress_pickle("PA_Restaurent_Recommendation.pbz2")
-# restaurent_state_rec_map['PA'] = PA_Restaurent_Recommendation
+PA_Restaurent_Recommendation = decompress_pickle(
+    "PA_Restaurent_Recommendation.pbz2")
+restaurent_state_rec_map['PA'] = PA_Restaurent_Recommendation
 FL_Restaurent_Recommendation = decompress_pickle(
     "FL_Restaurent_Recommendation.pbz2")
 restaurent_state_rec_map['FL'] = FL_Restaurent_Recommendation
