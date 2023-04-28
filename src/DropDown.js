@@ -34,9 +34,8 @@ const useStyles = makeStyles({
       }
 })
 
-const DropDown = ({ options,label }) => {
+const DropDown = ({ options,label,state,setState }) => {
     const classes = useStyles()
-    let [state, setState] = useState(null)
     const handleStateChange = (event) => {
         setState(event.target.value);
     };
