@@ -254,7 +254,7 @@ footer {
     grid-template-columns: repeat(3, 1fr);
   }
 
-}
+
 
 @media(max-width: 500px) {
 
@@ -324,33 +324,34 @@ footer {
     text-align: center;
     font-size: 15px;
   }
-
-
-.tile {
-  width: 50px;
-  height: 50px;
-  background-color: #F2F2F2;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  overflow: hidden;
-  position: relative;
 }
 
+    .tile {
+      width: 50px;
+      height: 50px;
+      background-color: #F2F2F2;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative;
+    }
 
-.hotel-title {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #fff;
-}
 
-.hotel-title h3 {
-  margin: 0;
-  font-size: 18px;
-}
+    .hotel-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #555; /* change to desired color */
+      text-align: center; /* add this line */
+    }
+
+    .hotel-title h3 {
+      margin: 0;
+      font-size: 10px;
+    }
 
 
 

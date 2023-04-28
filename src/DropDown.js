@@ -40,7 +40,7 @@ const DropDown = ({ options,label,state,setState }) => {
         setState(event.target.value);
     };
     return (
-        <FormControl variant="standard" sx={{ width: '30%', marginLeft: 'auto' }}>
+        <FormControl variant="standard" sx={{ width: '30%', marginLeft: 'auto', marginTop: "1px"}}>
             <InputLabel sx={{color:'white'}}>{label}</InputLabel>
             <>
                 <Select
