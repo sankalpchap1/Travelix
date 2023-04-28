@@ -57,11 +57,13 @@ class AE_CF:
         self.item_ratings = np.dot(
             item_similarity, self.ratings_mat_sparse.T) / np.sum(np.abs(item_similarity), axis=1)
 
-    # Get predicted ratings for user
+    # Get predicted ratings for user 
     def get_user_recommendation(self, user_id):
-        user_0_pred_ratings = self.user_ratings[user_id]
-        N = 12
-        # Sort predicted ratings in descending order
-        sorted_item_indices = np.argsort(
-            user_0_pred_ratings[0].toarray().flatten())[::-1][:N]
-        return sorted_item_indices
+        top_n = 12
+        # Get the predicted ratings for the user
+        user_predicted_ratings = self.user_ratings[user_id]
+        # Get the indices of the items sorted by predicted ratings
+        sorted_item_indices = np.argsort(user_predicted_ratings)
+        # Get the indices of the top-n items
+        top_n_item_indices = sorted_item_indices[-top_n:]
+        return top_n_item_indices
