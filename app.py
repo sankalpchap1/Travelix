@@ -368,8 +368,6 @@ def getAECFRecommendation(rec_type, state_name, user_id):
     for i in range(12):
         business_hash = recommendations_class.getBusinessHashFromBusinessNum(
             business_ids[i])
-        print(len(recommendations_class.business_num_to_business_hash_dict))
-        print(business_hash)
         business = recommendations_class.getBusinessInfo(business_hash)
         business_list.append(business)
 
