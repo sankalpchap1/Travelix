@@ -29,22 +29,6 @@ hotel_state_df_map = {}
 restaurent_state_df_map = {}
 
 
-@app.route('/profile')
-@cross_origin()
-def my_profile():
-    response_body = {
-        "name": "Nagato",
-        "about": "Hello! I'm a full stack developer that loves python and javascript"
-    }
-    return response_body
-
-
-@app.route('/')
-@cross_origin()
-def serve():
-    return send_from_directory(app.static_folder, 'index.html')
-
-
 def loadCSV():
     print("Loading CSV Files...")
     print(datetime.datetime.now())
@@ -174,6 +158,24 @@ print("Loading Restaurent Data Files Completed...")
 print(datetime.datetime.now())
 print("\n")
 
+# Write APIs here
+
+
+@app.route('/profile')
+@cross_origin()
+def my_profile():
+    response_body = {
+        "name": "Nagato",
+        "about": "Hello! I'm a full stack developer that loves python and javascript"
+    }
+    return response_body
+
+
+@app.route('/')
+@cross_origin()
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
+
 
 @app.route('/<string:rec_type>/<string:state_name>/<int:user_id>/getNPR')
 @cross_origin()
@@ -182,10 +184,8 @@ def getRecommendation(rec_type, state_name, user_id):
     global restaurent_state_rec_map
     rec = hotel_state_rec_map[state_name] if rec_type == "hotel" else restaurent_state_rec_map[state_name]
     business_list = rec.getNPRForuUser(user_id)
-    response = json.dumps(
+    return json.dumps(
         [{'name': business.name, 'address': business.address, 'city': business.city, 'state': business.state, 'postal_code': business.postal_code, 'stars': business.stars} for business in business_list])
-    print(response)
-    return response
 
 
 if __name__ == '__main__':
