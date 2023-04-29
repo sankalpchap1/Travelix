@@ -42,17 +42,17 @@ function App() {
   const [value, setValue] = useState(0);
   const [nprData, setNprData] = useState(null)
   const [mfData,setMfData] = useState(null)
+  const [aecfData,setAecfData] = useState(null)
+
   const stateNames = { 'PA': 'Pennsylvania', 'FL': 'Florida', 'TN': 'Tennessee', 'IN': 'Indiana', 'MO': 'Missouri', 'LA': 'Louisiana', 'AZ': 'Arizona', 'NJ': 'New Jersey', 'NV': 'Nevada', 'AB': 'Alabama' }
   const users = ['0', '1', '2', '3']
-  const typesDict = {0:'hotel',1:'restaurant',2:'shopping'}
+  const typesDict = {0:'hotel',1:'restaurant',2:'nightlife'}
   const swappedStateNames = Object.entries(stateNames).reduce((acc, [key, value]) => {
     acc[value] = key;
     return acc;
   }, {});
   const handleChangeType = (event,newValue) => {
-    console.log(newValue)
     setValue(newValue);
-    console.log(value)
   };
   const stateValues = Object.values(stateNames);
   const [usState, setUsState] = useState(null)
@@ -89,12 +89,29 @@ function App() {
         }
       })
   }
+  function getAECFData(type,user, state) {
+    axios({
+      method: "GET",
+      url: `/${type}/${state}/${user}/getAECF`,
+    })
+      .then((response) => {
+        const res = response.data
+        setAecfData([...res]);
+      }).catch((error) => {
+        if (error.response) {
+          console.log(error.response)
+          console.log(error.response.status)
+          console.log(error.response.headers)
+        }
+      })
+  }
 
   useEffect(() => {
     if (usState && userId) {
       console.log(usState, userId)
       getnprData(typesDict[value],userId, swappedStateNames[usState])
       getMfData(typesDict[value],userId,swappedStateNames[usState])
+      getAECFData(typesDict[value],userId,swappedStateNames[usState])
     }
   }, [usState, userId,value]);
 
@@ -138,12 +155,12 @@ function App() {
           {/* <a href="#home">Restaurants</a>
           <a href="#tvShows">Hotels</a>
           <a href="#movies">Shopping</a> */}
-          <Box sx={{ width: '100%' ,marginTop: "10px"}}>
+          <Box sx={{ width: '100%' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <Tabs value={value} onChange={handleChangeType} aria-label="basic tabs example">
-                <Tab sx={{color : "white" }} label="Hotels" {...a11yProps(0)} />
-                <Tab sx={{color : "white"}} label="Restaurants" {...a11yProps(1)} />
-                <Tab sx={{color : "white"}} label="Shopping" {...a11yProps(2)} />
+                <Tab label="Hotels" {...a11yProps(0)} />
+                <Tab label="Restaurants" {...a11yProps(1)} />
+                <Tab label="Night life" {...a11yProps(2)} />
               </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
@@ -174,110 +191,19 @@ function App() {
         </div>
 
 
-        <h1 id="myList">Recommended for You</h1>
+        <h1 id="myList">Recommendations based on your Travel History</h1>
         <div className="box">
         {mfData && mfData.map(business => (
                 <ActionAreaCard business={business}></ActionAreaCard>
             ))}
         </div>
 
-
-
-      <h1 id="tvShows">CF Recommendations</h1>
-      <div class="box">
-
-        <ActionAreaCard business ={"business"} />
-
-        <a style={{textDecoration: 'none'}} href="">
-                <div class="tile" style={{backgroundColor: '#CCCCCC'}}>
-                <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/p12.PNG?raw=true" alt="Hotel Image"/>
-                <div class="hotel-title">
-                    <p> <h3>Radisson Blue</h3>
-                    This hotel is located in Texas near College Station. <br/> Rating : 5.0</p>
-                </div>
-                </div>
-             </a>
-
-        <a style={{textDecoration: 'none'}} href="">
-                <div class="tile" style={{backgroundColor: '#B3E5FC'}}>
-                <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv1.PNG?raw=true" alt="Hotel Image"/>
-                <div class="hotel-title">
-                    <h3>Radisson Blue</h3>
-                </div>
-                </div>
-         </a>
-
-          <a style={{ textDecoration: 'none' }} href="">
-            <div class="tile" style={{ backgroundColor: '#B3E5FC' }}>
-              <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv2.PNG?raw=true" alt="Hotel Image" />
-              <div class="hotel-title">
-                <h3>Radisson Blue</h3>
-              </div>
-            </div>
-          </a>
-
-          <a style={{ textDecoration: 'none' }} href="">
-            <div class="tile" style={{ backgroundColor: '#B3E5FC' }}>
-              <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv3.PNG?raw=true" alt="Hotel Image" />
-              <div class="hotel-title">
-                <h3>Radisson Blue</h3>
-              </div>
-            </div>
-          </a>
-
-          <a style={{ textDecoration: 'none' }} href="">
-            <div class="tile" style={{ backgroundColor: '#B3E5FC' }}>
-              <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv4.PNG?raw=true" alt="Hotel Image" />
-              <div class="hotel-title">
-                <h3>Radisson Blue</h3>
-              </div>
-            </div>
-          </a>
-
-          <a style={{ textDecoration: 'none' }} href="">
-            <div class="tile" style={{ backgroundColor: '#B3E5FC' }}>
-              <img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv5.PNG?raw=true" alt="Hotel Image" />
-              <div class="hotel-title">
-                <h3>Radisson Blue</h3>
-              </div>
-            </div>
-          </a>
-
-          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv1.PNG?raw=true" alt="" /></a>
-          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv2.PNG?raw=true" alt="" /></a>
-          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv3.PNG?raw=true" alt="" /></a>
-          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv4.PNG?raw=true" alt="" /></a>
-          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv5.PNG?raw=true" alt="" /></a>
-          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv6.PNG?raw=true" alt="" /></a>
-
-          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv7.PNG?raw=true" alt="" /></a>
-          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv8.PNG?raw=true" alt="" /></a>
-          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv9.PNG?raw=true" alt="" /></a>
-          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv10.PNG?raw=true" alt="" /></a>
-          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/tv11.PNG?raw=true" alt="" /></a>
+        <h1 id="tvShows">Recommendations based on your Preferences</h1>
+        <div class="box">
+        {aecfData && aecfData.map(business => (
+                <ActionAreaCard business={business}></ActionAreaCard>
+            ))}
         </div>
-        {/*
-
-      <h1 id="movies">Blockbuster Action & Adventure</h1>
-      <div className="box">
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m1.PNG?raw=true" alt=""/></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m2.PNG?raw=true" alt=""/></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m3.PNG?raw=true" alt=""/></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m4.PNG?raw=true" alt=""/></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m5.PNG?raw=true" alt=""/></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/m6.PNG?raw=true" alt=""/></a>
-      </div>
-
-      <h1 id="originals">Netflix Originals</h1>
-      <div className="box">
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o1.PNG?raw=true" alt=""/></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o2.PNG?raw=true" alt=""/></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o3.PNG?raw=true" alt=""/></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o4.PNG?raw=true" alt=""/></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o5.PNG?raw=true" alt=""/></a>
-        <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/o6.PNG?raw=true" alt=""/></a>
-      </div>
-      */}
       </section>
       <section className="link">
         <div className="logos">
