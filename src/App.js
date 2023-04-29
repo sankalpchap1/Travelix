@@ -155,12 +155,12 @@ function App() {
           {/* <a href="#home">Restaurants</a>
           <a href="#tvShows">Hotels</a>
           <a href="#movies">Shopping</a> */}
-          <Box sx={{ width: '100%' }}>
+          <Box sx={{ width: '100%', marginTop: "10px" }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <Tabs value={value} onChange={handleChangeType} aria-label="basic tabs example">
-                <Tab label="Hotels" {...a11yProps(0)} />
-                <Tab label="Restaurants" {...a11yProps(1)} />
-                <Tab label="Night life" {...a11yProps(2)} />
+                <Tab sx={{color : "white" }}  label="Hotels" {...a11yProps(0)} />
+                <Tab sx={{color : "white" }}  label="Restaurants" {...a11yProps(1)} />
+                <Tab sx={{color : "white" }}  label="Night life" {...a11yProps(2)} />
               </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
