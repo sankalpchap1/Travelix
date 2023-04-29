@@ -385,6 +385,43 @@ print(datetime.datetime.now())
 print("\n")
 
 
+nightlife_aecf_map = {}
+print("Loading Nightlife AECF Files...")
+print(datetime.datetime.now())
+PA_Nightlife_AECF = decompress_pickle(
+    "data/nightlife/PA_Nightlife_AECF.pbz2")
+nightlife_aecf_map['PA'] = PA_Nightlife_AECF
+FL_Nightlife_AECF = decompress_pickle(
+    "data/nightlife/FL_Nightlife_AECF.pbz2")
+nightlife_aecf_map['FL'] = FL_Nightlife_AECF
+TN_Nightlife_AECF = decompress_pickle(
+    "data/nightlife/TN_Nightlife_AECF.pbz2")
+nightlife_aecf_map['TN'] = TN_Nightlife_AECF
+IN_Nightlife_AECF = decompress_pickle(
+    "data/nightlife/IN_Nightlife_AECF.pbz2")
+nightlife_aecf_map['IN'] = IN_Nightlife_AECF
+MO_Nightlife_AECF = decompress_pickle(
+    "data/nightlife/MO_Nightlife_AECF.pbz2")
+nightlife_aecf_map['MO'] = MO_Nightlife_AECF
+LA_Nightlife_AECF = decompress_pickle(
+    "data/nightlife/LA_Nightlife_AECF.pbz2")
+nightlife_aecf_map['LA'] = LA_Nightlife_AECF
+AZ_Nightlife_AECF = decompress_pickle(
+    "data/nightlife/AZ_Nightlife_AECF.pbz2")
+nightlife_aecf_map['AZ'] = AZ_Nightlife_AECF
+NJ_Nightlife_AECF = decompress_pickle(
+    "data/nightlife/NJ_Nightlife_AECF.pbz2")
+nightlife_aecf_map['NJ'] = NJ_Nightlife_AECF
+NV_Nightlife_AECF = decompress_pickle(
+    "data/nightlife/NV_Nightlife_AECF.pbz2")
+nightlife_aecf_map['NV'] = NV_Nightlife_AECF
+AB_Nightlife_AECF = decompress_pickle(
+    "data/nightlife/AB_Nightlife_AECF.pbz2")
+nightlife_aecf_map['AB'] = AB_Nightlife_AECF
+print("Loading Nightlife AECF Files Completed...")
+print(datetime.datetime.now())
+print("\n")
+
 # Write APIs here
 
 
@@ -459,17 +496,22 @@ def getMFRecommendation(rec_type, state_name, user_id):
 def getAECFRecommendation(rec_type, state_name, user_id):
     global hotel_aecf_map
     global restaurent_aecf_map
+    global nightlife_aecf_map
     global hotel_state_rec_map
     global restaurent_state_rec_map
+    global nightlife_state_rec_map
     if rec_type == "hotel":
         aecf_recommendations = hotel_aecf_map[state_name]
         recommendations_class = hotel_state_rec_map[state_name]
     elif rec_type == "restaurent":
         aecf_recommendations = restaurent_aecf_map[state_name]
         recommendations_class = restaurent_state_rec_map[state_name]
+    elif rec_type == "nightlife":
+        aecf_recommendations = nightlife_aecf_map[state_name]
+        recommendations_class = nightlife_state_rec_map[state_name]
 
     business_ids = aecf_recommendations.get_user_recommendation(user_id)
-    print(business_ids)
+    # print(business_ids)
 
     business_list = []
     for i in range(12):
@@ -484,3 +526,4 @@ def getAECFRecommendation(rec_type, state_name, user_id):
 
 if __name__ == '__main__':
     app.run(debug=False)
+    # app.run(port = 8080, host = '0.0.0.0', debug=False)
