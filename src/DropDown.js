@@ -26,22 +26,22 @@ const useStyles = makeStyles({
     inputLabel: {
         color: "white",
         "&.Mui-focused": {
-          color: "white",
+            color: "white",
         },
     },
     whiteColor: {
         color: "white"
-      }
+    }
 })
 
-const DropDown = ({ options,label,state,setState }) => {
+const DropDown = ({ options, label, state, setState }) => {
     const classes = useStyles()
     const handleStateChange = (event) => {
         setState(event.target.value);
     };
     return (
-        <FormControl variant="standard" sx={{ width: '30%', marginLeft: 'auto', marginTop: "1px"}}>
-            <InputLabel sx={{color:'white'}}>{label}</InputLabel>
+        <FormControl variant="standard" sx={{ width: '30%', marginLeft: 'auto', marginTop: "1px" }}>
+            <InputLabel sx={{ color: 'white' }}>{label}</InputLabel>
             <>
                 <Select
                     labelId={label}
