@@ -160,6 +160,43 @@ print("Loading Restaurent Data Files Completed...")
 print(datetime.datetime.now())
 print("\n")
 
+nightlife_state_rec_map = {}
+print("Loading Nightlife Data Files...")
+print(datetime.datetime.now())
+PA_Nightlife_Recommendation = decompress_pickle(
+    "data/nightlife/PA_Nightlife_Recommendation.pbz2")
+nightlife_state_rec_map['PA'] = PA_Nightlife_Recommendation
+FL_Nightlife_Recommendation = decompress_pickle(
+    "data/nightlife/FL_Nightlife_Recommendation.pbz2")
+nightlife_state_rec_map['FL'] = FL_Nightlife_Recommendation
+TN_Nightlife_Recommendation = decompress_pickle(
+    "data/nightlife/TN_Nightlife_Recommendation.pbz2")
+nightlife_state_rec_map['TN'] = TN_Nightlife_Recommendation
+IN_Nightlife_Recommendation = decompress_pickle(
+    "data/nightlife/IN_Nightlife_Recommendation.pbz2")
+nightlife_state_rec_map['IN'] = IN_Nightlife_Recommendation
+MO_Nightlife_Recommendation = decompress_pickle(
+    "data/nightlife/MO_Nightlife_Recommendation.pbz2")
+nightlife_state_rec_map['MO'] = MO_Nightlife_Recommendation
+LA_Nightlife_Recommendation = decompress_pickle(
+    "data/nightlife/LA_Nightlife_Recommendation.pbz2")
+nightlife_state_rec_map['LA'] = LA_Nightlife_Recommendation
+AZ_Nightlife_Recommendation = decompress_pickle(
+    "data/nightlife/AZ_Nightlife_Recommendation.pbz2")
+nightlife_state_rec_map['AZ'] = AZ_Nightlife_Recommendation
+NJ_Nightlife_Recommendation = decompress_pickle(
+    "data/nightlife/NJ_Nightlife_Recommendation.pbz2")
+nightlife_state_rec_map['NJ'] = NJ_Nightlife_Recommendation
+NV_Nightlife_Recommendation = decompress_pickle(
+    "data/nightlife/NV_Nightlife_Recommendation.pbz2")
+nightlife_state_rec_map['NV'] = NV_Nightlife_Recommendation
+AB_Nightlife_Recommendation = decompress_pickle(
+    "data/nightlife/AB_Nightlife_Recommendation.pbz2")
+nightlife_state_rec_map['AB'] = AB_Nightlife_Recommendation
+print("Loading Nightlife Data Files Completed...")
+print(datetime.datetime.now())
+print("\n")
+
 hotel_mf_map = {}
 print("Loading Hotel MF Files...")
 print(datetime.datetime.now())
@@ -221,6 +258,43 @@ AB_Restaurent_MF = decompress_pickle(
     "data/restaurent/AB_Restaurent_MF.pbz2")
 restaurent_mf_map['AB'] = AB_Restaurent_MF
 print("Loading Restaurent MF Files Completed...")
+print(datetime.datetime.now())
+print("\n")
+
+nightlife_mf_map = {}
+print("Loading Nightlife MF Files...")
+print(datetime.datetime.now())
+PA_Nightlife_MF = decompress_pickle(
+    "data/nightlife/PA_Nightlife_MF.pbz2")
+nightlife_mf_map['PA'] = PA_Nightlife_MF
+FL_Nightlife_MF = decompress_pickle(
+    "data/nightlife/FL_Nightlife_MF.pbz2")
+nightlife_mf_map['FL'] = FL_Nightlife_MF
+TN_Nightlife_MF = decompress_pickle(
+    "data/nightlife/TN_Nightlife_MF.pbz2")
+nightlife_mf_map['TN'] = TN_Nightlife_MF
+IN_Nightlife_MF = decompress_pickle(
+    "data/nightlife/IN_Nightlife_MF.pbz2")
+nightlife_mf_map['IN'] = IN_Nightlife_MF
+MO_Nightlife_MF = decompress_pickle(
+    "data/nightlife/MO_Nightlife_MF.pbz2")
+nightlife_mf_map['MO'] = MO_Nightlife_MF
+LA_Nightlife_MF = decompress_pickle(
+    "data/nightlife/LA_Nightlife_MF.pbz2")
+nightlife_mf_map['LA'] = LA_Nightlife_MF
+AZ_Nightlife_MF = decompress_pickle(
+    "data/nightlife/AZ_Nightlife_MF.pbz2")
+nightlife_mf_map['AZ'] = AZ_Nightlife_MF
+NJ_Nightlife_MF = decompress_pickle(
+    "data/nightlife/NJ_Nightlife_MF.pbz2")
+nightlife_mf_map['NJ'] = NJ_Nightlife_MF
+NV_Nightlife_MF = decompress_pickle(
+    "data/nightlife/NV_Nightlife_MF.pbz2")
+nightlife_mf_map['NV'] = NV_Nightlife_MF
+AB_Nightlife_MF = decompress_pickle(
+    "data/nightlife/AB_Nightlife_MF.pbz2")
+nightlife_mf_map['AB'] = AB_Nightlife_MF
+print("Loading Nightlife MF Files Completed...")
 print(datetime.datetime.now())
 print("\n")
 
@@ -324,8 +398,15 @@ def serve():
 def getNPRRecommendation(rec_type, state_name, user_id):
     global hotel_state_rec_map
     global restaurent_state_rec_map
-    rec = hotel_state_rec_map[state_name] if rec_type == "hotel" else restaurent_state_rec_map[state_name]
-    business_list = rec.getNPRForuUser(user_id)
+    global nightlife_state_rec_map
+    if rec_type == "hotel":
+        recommendations_class = hotel_state_rec_map[state_name]
+    elif rec_type == "restaurent":
+        recommendations_class = restaurent_state_rec_map[state_name]
+    elif rec_type == "nightlife":
+        recommendations_class = nightlife_state_rec_map[state_name]
+
+    business_list = recommendations_class.getNPRForuUser(user_id)
     return json.dumps(
         [{'name': business.name, 'address': business.address, 'city': business.city, 'state': business.state, 'postal_code': business.postal_code, 'stars': business.stars} for business in business_list])
 
@@ -335,14 +416,19 @@ def getNPRRecommendation(rec_type, state_name, user_id):
 def getMFRecommendation(rec_type, state_name, user_id):
     global hotel_mf_map
     global restaurent_mf_map
+    global nightlife_mf_map
     global hotel_state_rec_map
     global restaurent_state_rec_map
+    global nightlife_state_rec_map
     if rec_type == "hotel":
         mf_recommendations = hotel_mf_map[state_name]
+        recommendations_class = hotel_state_rec_map[state_name]
     elif rec_type == "restaurent":
         mf_recommendations = restaurent_mf_map[state_name]
-    recommendations_class = hotel_state_rec_map[
-        state_name] if rec_type == "hotel" else restaurent_state_rec_map[state_name]
+        recommendations_class = restaurent_state_rec_map[state_name]
+    elif rec_type == "nightlife":
+        mf_recommendations = nightlife_mf_map[state_name]
+        recommendations_class = nightlife_state_rec_map[state_name]
 
     business_ids = mf_recommendations[user_id][:12]
 
