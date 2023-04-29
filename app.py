@@ -19,6 +19,7 @@ reviews_df = pd.DataFrame()
 # create an empty dictionary to store the dataframes
 hotel_state_df_map = {}
 restaurent_state_df_map = {}
+nightlife_state_df_map = {}
 
 
 def loadCSV():
@@ -55,14 +56,20 @@ def getTopStates():
     restaurent_mask = business_df['categories'].str.contains('Restaurants')
     restaurent_df = business_df[restaurent_mask]
 
+    # Creating mask for Nightlife
+    nightlife_mask = business_df['categories'].str.contains('Nightlife')
+    nightlife_df = business_df[nightlife_mask]
+
     global hotel_state_df_map
     global restaurent_state_df_map
+    global nightlife_state_df_map
 
     for state in top_states:
         df_name = f'business_df_{state}'
 
         hotel_state_df = hotel_df[hotel_df['state'] == state]
         restaurent_state_df = restaurent_df[restaurent_df['state'] == state]
+        nightlife_state_df = nightlife_df[nightlife_df['state'] == state]
 
         exec(f"{df_name} = hotel_state_df")
         # add the dataframe to the dictionary with the state abbreviation as the key
@@ -71,6 +78,10 @@ def getTopStates():
         exec(f"{df_name} = restaurent_state_df")
         # add the dataframe to the dictionary with the state abbreviation as the key
         restaurent_state_df_map[state] = restaurent_state_df
+
+        exec(f"{df_name} = nightlife_state_df")
+        # add the dataframe to the dictionary with the state abbreviation as the key
+        nightlife_state_df_map[state] = nightlife_state_df
 
 
 def compressed_pickle(title, data):
@@ -472,4 +483,4 @@ def getAECFRecommendation(rec_type, state_name, user_id):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=False)
+    app.run(debug=False)
