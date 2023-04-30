@@ -10,20 +10,18 @@ import Typography from '@mui/material/Typography';
 import Checkbox from '@mui/material/Checkbox';
 import ListItemText from '@mui/material/ListItemText';
 import { useNavigate } from 'react-router-dom';
-import { Box } from '@mui/material';
+import { Box, Paper } from '@mui/material';
+
 const styles = {
     headingContainer: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh',
-        backgroundColor: '#000000',
     },
     heading: {
         fontWeight: 'bold',
-        color: '#E71D36',
-
+        color: '#1A2E4F',
         fontSize: '8rem',
         textTransform: 'uppercase',
         marginBottom: '1rem',
@@ -32,8 +30,8 @@ const styles = {
     },
     tagline: {
         fontSize: '5rem',
-        color: '#D58D18',
-
+        fontWeight: 'bold',
+        color: '#1A2E4F',
         marginBottom: '2rem',
         animation: 'fade-in 2s ease-out',
         animationFillMode: 'forwards'
@@ -101,90 +99,96 @@ function Form() {
     };
 
     return (
-        <Box sx={styles.headingContainer}>
-            <Typography variant="h1" sx={styles.heading}>
-                Travelix
-            </Typography>
-            <Typography variant="h5" sx={styles.tagline}>
-                Let us take you places!!
-            </Typography>
-            <Box sx={styles.formContainer}>
+        <div style={{
+            backgroundImage: `url(/Plan_travel.jpg)`, width: "100vw",
+            height: "100vh", backgroundRepeat: 'no-repeat', backgroundSize: 'cover', display: 'flex', justifyContent: 'center', alignItems: 'center'
+        }}>
 
-                <form onSubmit={handleSubmit} sx={styles.form}>
-                    <Grid container direction="column" spacing={2} columns={1}>
-                        <Grid item container xs={12} spacing={2} sm={12}>
-                            <Grid item xs={6}>
-                                <Typography variant="h6" sx={{ color: 'white' }}>Choose your next destination</Typography>
+            <Box sx={{ backgroundColor: '#E3FBFC', border: '1px dotted black', opacity: '0.7', padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+                <Typography variant="h1" sx={styles.heading}>
+                    Travelix
+                </Typography>
+                <Typography variant="h5" sx={styles.tagline}>
+                    Let us take you places!!
+                </Typography>
+                <Box sx={styles.formContainer}>
+
+                    <form onSubmit={handleSubmit} sx={styles.form}>
+                        <Grid container direction="column" spacing={2} columns={1}>
+                            <Grid item container xs={12} spacing={2} sm={12}>
+                                <Grid item xs={6}>
+                                    <Typography variant="h6" sx={{ color: 'black' }}>Choose your next destination</Typography>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <FormControl variant="standard" >
+                                        <InputLabel id="states-label" sx={{ color: 'black' }}>States</InputLabel>
+                                        <Select
+                                            labelId="states-label"
+                                            id="states"
+                                            multiple
+                                            fullWidth
+                                            sx={{ color: 'black' }}
+                                            value={selectedStates}
+                                            onChange={handleStateChange}
+                                            renderValue={(selected) => selected.join(', ')}
+
+                                        >
+                                            {stateOptions.map((option) => (
+                                                <MenuItem key={option.value} value={option.value}>
+                                                    <Checkbox checked={selectedStates.indexOf(option.label) > -1} />
+                                                    <ListItemText primary={option.label} />
+                                                </MenuItem>
+                                            ))}
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
                             </Grid>
-                            <Grid item xs={6}>
-                                <FormControl variant="standard" >
-                                    <InputLabel id="states-label" sx={{ color: 'white' }}>States</InputLabel>
-                                    <Select
-                                        labelId="states-label"
-                                        id="states"
-                                        multiple
-                                        fullWidth
-                                        sx={{ color: 'white' }}
-                                        value={selectedStates}
-                                        onChange={handleStateChange}
-                                        renderValue={(selected) => selected.join(', ')}
+                            <Grid item container spacing={2} xs={12} sm={12}>
+                                <Grid item xs={6}>
+                                    <Typography variant="h6" sx={{ color: 'black' }}>Select your categories?</Typography>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <FormControl variant="standard">
+                                        <InputLabel id="categories-label" sx={{ color: 'black' }}>Categories?</InputLabel>
+                                        <Select
+                                            labelId="categories-label"
+                                            id="categories"
+                                            multiple
+                                            sx={{ color: 'black' }}
+                                            fullWidth
+                                            value={selectedCategories}
+                                            onChange={handleCategoryChange}
+                                            renderValue={(selected) => selected.join(', ')}
 
-                                    >
-                                        {stateOptions.map((option) => (
-                                            <MenuItem key={option.value} value={option.value}>
-                                                <Checkbox checked={selectedStates.indexOf(option.label) > -1} />
-                                                <ListItemText primary={option.label} />
-                                            </MenuItem>
-                                        ))}
-                                    </Select>
-                                </FormControl>
+                                        >
+                                            {categoryOptions.map((option) => (
+                                                <MenuItem key={option.value} value={option.value}>
+                                                    <Checkbox checked={selectedCategories.indexOf(option.label) > -1} />
+                                                    <ListItemText primary={option.label} />
+                                                </MenuItem>
+                                            ))}
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
+                            </Grid>
+                            <Grid
+                                container
+                                direction="column"
+                                alignItems="center"
+                            >
+
+                                <Grid item xs={3}>
+                                    <Button variant="contained" color="primary" type="submit" sx={styles.submitButton} >
+                                        Submit
+                                    </Button>  </Grid>
+
                             </Grid>
                         </Grid>
-                        <Grid item container spacing={2} xs={12} sm={12}>
-                            <Grid item xs={6}>
-                                <Typography variant="h6" sx={{ color: 'white' }}>Select your categories?</Typography>
-                            </Grid>
-                            <Grid item xs={6}>
-                                <FormControl variant="standard">
-                                    <InputLabel id="categories-label" sx={{ color: 'white' }}>Categories?</InputLabel>
-                                    <Select
-                                        labelId="categories-label"
-                                        id="categories"
-                                        multiple
-                                        sx={{ color: 'white' }}
-                                        fullWidth
-                                        value={selectedCategories}
-                                        onChange={handleCategoryChange}
-                                        renderValue={(selected) => selected.join(', ')}
-
-                                    >
-                                        {categoryOptions.map((option) => (
-                                            <MenuItem key={option.value} value={option.value}>
-                                                <Checkbox checked={selectedCategories.indexOf(option.label) > -1} />
-                                                <ListItemText primary={option.label} />
-                                            </MenuItem>
-                                        ))}
-                                    </Select>
-                                </FormControl>
-                            </Grid>
-                        </Grid>
-                        <Grid
-                            container
-                            direction="column"
-                            alignItems="center"
-                        >
-
-                            <Grid item xs={3}>
-                                <Button variant="contained" color="primary" type="submit" sx={styles.submitButton} >
-                                    Submit
-                                </Button>  </Grid>
-
-                        </Grid>
-                    </Grid>
-
-                </form>
+                    </form>
+                </Box>
             </Box>
-        </Box>
+        </div>
+
     );
 }
 
