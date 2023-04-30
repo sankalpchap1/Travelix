@@ -25,3 +25,5 @@ yarn-error.log*
 
 yelp_academic_dataset_*.csv
 testformat.py
+
+*.pyc

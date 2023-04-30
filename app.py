@@ -137,9 +137,9 @@ def serve():
 @app.route('/<string:rec_type>/<string:state_name>/<int:user_id>/getNPR')
 @cross_origin()
 def getNPRRecommendation(rec_type, state_name, user_id):
-    global hotel_state_rec_map
-    global restaurent_state_rec_map
-    global nightlife_state_rec_map
+    # global hotel_state_rec_map
+    # global restaurent_state_rec_map
+    # global nightlife_state_rec_map
     print("HOTEL MAP SIZE:")
     print(len(hotel_state_rec_map))
     if rec_type == "hotel":
@@ -157,12 +157,12 @@ def getNPRRecommendation(rec_type, state_name, user_id):
 @app.route('/<string:rec_type>/<string:state_name>/<int:user_id>/getMF')
 @cross_origin()
 def getMFRecommendation(rec_type, state_name, user_id):
-    global hotel_mf_map
-    global restaurent_mf_map
-    global nightlife_mf_map
-    global hotel_state_rec_map
-    global restaurent_state_rec_map
-    global nightlife_state_rec_map
+    # global hotel_mf_map
+    # global restaurent_mf_map
+    # global nightlife_mf_map
+    # global hotel_state_rec_map
+    # global restaurent_state_rec_map
+    # global nightlife_state_rec_map
     if rec_type == "hotel":
         mf_recommendations = hotel_mf_map[state_name]
         recommendations_class = hotel_state_rec_map[state_name]
@@ -189,12 +189,12 @@ def getMFRecommendation(rec_type, state_name, user_id):
 @app.route('/<string:rec_type>/<string:state_name>/<int:user_id>/getAECF')
 @cross_origin()
 def getAECFRecommendation(rec_type, state_name, user_id):
-    global hotel_aecf_map
-    global restaurent_aecf_map
-    global nightlife_aecf_map
-    global hotel_state_rec_map
-    global restaurent_state_rec_map
-    global nightlife_state_rec_map
+    # global hotel_aecf_map
+    # global restaurent_aecf_map
+    # global nightlife_aecf_map
+    # global hotel_state_rec_map
+    # global restaurent_state_rec_map
+    # global nightlife_state_rec_map
     if rec_type == "hotel":
         aecf_recommendations = hotel_aecf_map[state_name]
         recommendations_class = hotel_state_rec_map[state_name]
