@@ -9,7 +9,16 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Button } from '@mui/material';
+import { Button, IconButton } from '@mui/material';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+
+const styles = {
+    submitButton: {
+        display: 'flex',
+        justifyContent: 'center',
+        marginTop: '1rem',
+    },
+};
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -46,18 +55,26 @@ function MainPage() {
     const [aecfData, setAecfData] = useState(null)
 
     const stateNames = { 'PA': 'Pennsylvania', 'FL': 'Florida', 'TN': 'Tennessee', 'IN': 'Indiana', 'MO': 'Missouri', 'LA': 'Louisiana', 'AZ': 'Arizona', 'NJ': 'New Jersey', 'NV': 'Nevada', 'AB': 'Alabama' }
-    const users = ['0', '1', '2', '3']
+    const users = {'0' : 'Swapnil', '1' : 'Udhav', '2' : 'Kushagra', '3' : 'Srishti', '4' : 'Suman', '5' : 'Ashish', '6' : 'Anisha', '7' : 'Mona' , '8' : 'Harman' , '9' : 'Mahima' , '10' : 'Emanuel' }
+
     const typesDict = { 0: 'hotel', 1: 'restaurent', 2: 'nightlife' }
     const swappedStateNames = Object.entries(stateNames).reduce((acc, [key, value]) => {
         acc[value] = key;
         return acc;
     }, {});
+
+    const swappedUserNames = Object.entries(users).reduce((acc, [key, value]) => {
+        acc[value] = key;
+        return acc;
+    }, {});
+
     const handleChangeType = (event, newValue) => {
         setValue(newValue);
     };
     const stateValues = Object.values(stateNames);
-    const [usState, setUsState] = useState(null)
-    const [userId, setUserId] = useState(null)
+    const userValues = Object.values(users);
+    const [usState, setUsState] = useState("Florida")
+    const [userId, setUserId] = useState("Swapnil")
     function getnprData(type, user, state) {
         axios({
             method: "GET",
@@ -110,9 +127,9 @@ function MainPage() {
     useEffect(() => {
         if (usState && userId) {
             console.log(usState, userId)
-            getnprData(typesDict[value], userId, swappedStateNames[usState])
-            getMfData(typesDict[value], userId, swappedStateNames[usState])
-            getAECFData(typesDict[value], userId, swappedStateNames[usState])
+            getnprData(typesDict[value], swappedUserNames[userId], swappedStateNames[usState])
+            getMfData(typesDict[value], swappedUserNames[userId], swappedStateNames[usState])
+            getAECFData(typesDict[value], swappedUserNames[userId], swappedStateNames[usState])
         }
     }, [usState, userId, value]);
 
@@ -126,33 +143,33 @@ function MainPage() {
                     <a id="logo" href="#home"><img src="https://github.com/bassirishabh/Travelix/blob/master/public/travelix.png?raw=true" alt="Logo Image"></img></a>
 
                 </div>
-                <nav className="main-nav">
-                    <Box sx={{ width: '100%', marginTop: "10px" }}>
-                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                            <Tabs value={value} onChange={handleChangeType} aria-label="basic tabs example">
-                                <Tab sx={{ color: "white" }} label="Hotels" {...a11yProps(0)} />
-                                <Tab sx={{ color: "white" }} label="Restaurants" {...a11yProps(1)} />
-                                <Tab sx={{ color: "white" }} label="Night life" {...a11yProps(2)} />
-                            </Tabs>
-                        </Box>
-                        <TabPanel value={value} index={0}>
-                        </TabPanel>
-                        <TabPanel value={value} index={1}>
-                        </TabPanel>
-                        <TabPanel value={value} index={2}>
-                        </TabPanel>
-                    </Box>
-                    <Link to="/form">
-                        <Button  variant="contained">New User</Button>
-                    </Link>
-                    <DropDown className="small-nav" options={users} state={userId} setState={setUserId} label="User" ></DropDown>
-                    <DropDown className="small-nav" options={stateValues} state={usState} setState={setUsState} label="State"></DropDown>
 
+                <nav className="main-nav">
+                  <Box sx={{ display: 'inline-flex', width: '100%', marginTop: "15px" }}>
+                    <Box sx={{ display: 'inline-flex', borderBottom: 1, borderColor: 'divider' }}>
+                      <Tabs value={value} onChange={handleChangeType} aria-label="basic tabs example">
+                        <Tab sx={{ color: "white" }} label="Hotels & Travel" {...a11yProps(0)} />
+                        <Tab sx={{ color: "white" }} label="Restaurants" {...a11yProps(1)} />
+                        <Tab sx={{ color: "white" }} label="Night life" {...a11yProps(2)} />
+                      </Tabs>
+                    </Box>
+                    <TabPanel value={value} index={0}>
+                    </TabPanel>
+                    <TabPanel value={value} index={1}>
+                    </TabPanel>
+                    <TabPanel value={value} index={2}>
+                    </TabPanel>
+                    <DropDown className="small-nav" sx={{ display: 'inline-flex', width: '90%', marginTop: "5px" }} options={userValues} state={userId} setState={setUserId} label="User" ></DropDown>
+                    <DropDown className="small-nav" sx={{ display: 'inline-flex', width: '90%', marginTop: "5px" }} options={stateValues} state={usState} setState={setUsState} label="State"></DropDown>
+                      <Link to="/form">
+                        <IconButton sx={{ display: 'inline-flex', width: '100%', marginTop: "5px" }}variant="contained" color="primary" type="submit" sx={styles.submitButton}>
+                          <PersonAddIcon/>
+                        </IconButton>
+                      </Link>
+                  </Box>
                 </nav>
-                <nav className="sub-nav">
-                    <a href="#"><i className="fas fa-search sub-nav-logo"></i></a>
-                    <a href="#"><i className="fas fa-bell sub-nav-logo"></i></a>
-                </nav>
+
+
             </header>
 
             <section className="main-container" >

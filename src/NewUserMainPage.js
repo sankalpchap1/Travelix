@@ -9,7 +9,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { useLocation } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 function NewUserMainPage() {
     // new line start
@@ -91,7 +91,9 @@ function NewUserMainPage() {
         <div className="wrapper">
             <header>
                 <div class="netflixLogo">
-                    <a id="logo" href="#home"><img src="https://github.com/bassirishabh/Travelix/blob/master/public/travelix.png?raw=true" alt="Logo Image"></img></a>
+                  <Link to="/">
+                    <a id="logo" ><img src="https://github.com/bassirishabh/Travelix/blob/master/public/travelix.png?raw=true" alt="Logo Image"></img></a>
+                   </Link>
                 </div>
                 <nav className="main-nav">
                     <DropDown className="small-nav" options={selectedCategories} state={category} setState={setCategory} label="Category" ></DropDown>

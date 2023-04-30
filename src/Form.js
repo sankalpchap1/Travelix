@@ -115,13 +115,13 @@ function Form() {
 
                     <form onSubmit={handleSubmit} sx={styles.form}>
                         <Grid container direction="column" spacing={2} columns={1}>
-                            <Grid item container xs={12} spacing={2} sm={12}>
+                            <Grid item container xs={12} spacing={10} sm={12}>
                                 <Grid item xs={6}>
-                                    <Typography variant="h6" sx={{ color: 'black' }}>Choose your next destination</Typography>
+                                    <Typography variant="h6" sx={{ width: 350, color: 'black' }}>Choose your next destination</Typography>
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <FormControl variant="standard" >
-                                        <InputLabel id="states-label" sx={{ color: 'black' }}>States</InputLabel>
+                                    <FormControl variant="standard" sx={{ width: '100%' }}>
+                                        <InputLabel id="states-label" sx={{ color: 'black', fontSize: '1.2rem', width: '100%' }}>States</InputLabel>
                                         <Select
                                             labelId="states-label"
                                             id="states"
@@ -143,18 +143,18 @@ function Form() {
                                     </FormControl>
                                 </Grid>
                             </Grid>
-                            <Grid item container spacing={2} xs={12} sm={12}>
+                            <Grid item container spacing={10} xs={12} sm={12}>
                                 <Grid item xs={6}>
-                                    <Typography variant="h6" sx={{ color: 'black' }}>Select your categories?</Typography>
+                                    <Typography variant="h6" sx={{width: 350, color: 'black' }}>Select your categories</Typography>
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <FormControl variant="standard">
-                                        <InputLabel id="categories-label" sx={{ color: 'black' }}>Categories?</InputLabel>
+                                    <FormControl variant="standard" sx={{ width: '100%' }}>
+                                        <InputLabel id="categories-label" sx={{ color: 'black', display: 'block', width: '100%'  }}>Categories?</InputLabel>
                                         <Select
                                             labelId="categories-label"
                                             id="categories"
                                             multiple
-                                            sx={{ color: 'black' }}
+                                            sx={{ color: 'black', display: 'block', width: '100%'  }}
                                             fullWidth
                                             value={selectedCategories}
                                             onChange={handleCategoryChange}
