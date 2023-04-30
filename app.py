@@ -141,6 +141,8 @@ def getNPRRecommendation(rec_type, state_name, user_id):
     global hotel_state_rec_map
     global restaurent_state_rec_map
     global nightlife_state_rec_map
+    print("HOTEL MAP SIZE:")
+    print(len(hotel_state_rec_map))
     if rec_type == "hotel":
         recommendations_class = hotel_state_rec_map[state_name]
     elif rec_type == "restaurent":
