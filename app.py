@@ -44,6 +44,106 @@ restaurent_aecf_map = {}
 
 nightlife_aecf_map = {}
 
+PA_Hotel_Recommendation = None
+FL_Hotel_Recommendation = None
+TN_Hotel_Recommendation = None
+IN_Hotel_Recommendation = None
+MO_Hotel_Recommendation = None
+LA_Hotel_Recommendation = None
+AZ_Hotel_Recommendation = None
+NJ_Hotel_Recommendation = None
+NV_Hotel_Recommendation = None
+AB_Hotel_Recommendation = None
+
+PA_Restaurent_Recommendation = None
+FL_Restaurent_Recommendation = None
+TN_Restaurent_Recommendation = None
+IN_Restaurent_Recommendation = None
+MO_Restaurent_Recommendation = None
+LA_Restaurent_Recommendation = None
+AZ_Restaurent_Recommendation = None
+NJ_Restaurent_Recommendation = None
+NV_Restaurent_Recommendation = None
+AB_Restaurent_Recommendation = None
+
+
+PA_Nightlife_Recommendation = None
+FL_Nightlife_Recommendation = None
+TN_Nightlife_Recommendation = None
+IN_Nightlife_Recommendation = None
+MO_Nightlife_Recommendation = None
+LA_Nightlife_Recommendation = None
+AZ_Nightlife_Recommendation = None
+NJ_Nightlife_Recommendation = None
+NV_Nightlife_Recommendation = None
+AB_Nightlife_Recommendation = None
+
+PA_Hotel_MF = None
+FL_Hotel_MF = None
+TN_Hotel_MF = None
+IN_Hotel_MF = None
+MO_Hotel_MF = None
+LA_Hotel_MF = None
+AZ_Hotel_MF = None
+NJ_Hotel_MF = None
+NV_Hotel_MF = None
+AB_Hotel_MF = None
+
+PA_Restaurent_MF = None
+FL_Restaurent_MF = None
+TN_Restaurent_MF = None
+IN_Restaurent_MF = None
+MO_Restaurent_MF = None
+LA_Restaurent_MF = None
+AZ_Restaurent_MF = None
+NJ_Restaurent_MF = None
+NV_Restaurent_MF = None
+AB_Restaurent_MF = None
+
+PA_Nightlife_MF = None
+FL_Nightlife_MF = None
+TN_Nightlife_MF = None
+IN_Nightlife_MF = None
+MO_Nightlife_MF = None
+LA_Nightlife_MF = None
+AZ_Nightlife_MF = None
+NJ_Nightlife_MF = None
+NV_Nightlife_MF = None
+AB_Nightlife_MF = None
+
+PA_Hotel_AECF = None
+FL_Hotel_AECF = None
+TN_Hotel_AECF = None
+IN_Hotel_AECF = None
+MO_Hotel_AECF = None
+LA_Hotel_AECF = None
+AZ_Hotel_AECF = None
+NJ_Hotel_AECF = None
+NV_Hotel_AECF = None
+AB_Hotel_AECF = None
+
+PA_Restaurent_AECF = None
+FL_Restaurent_AECF = None
+TN_Restaurent_AECF = None
+IN_Restaurent_AECF = None
+MO_Restaurent_AECF = None
+LA_Restaurent_AECF = None
+AZ_Restaurent_AECF = None
+NJ_Restaurent_AECF = None
+NV_Restaurent_AECF = None
+AB_Restaurent_AECF = None
+
+PA_Nightlife_AECF = None
+FL_Nightlife_AECF = None
+TN_Nightlife_AECF = None
+IN_Nightlife_AECF = None
+MO_Nightlife_AECF = None
+LA_Nightlife_AECF = None
+AZ_Nightlife_AECF = None
+NJ_Nightlife_AECF = None
+NV_Nightlife_AECF = None
+AB_Nightlife_AECF = None
+
 
 def loadCSV():
     print("Loading CSV Files...")
@@ -478,6 +578,115 @@ def helper_fun():
 # Write APIs here
 
 def completeMaps():
+    global hotel_state_rec_map
+    global restaurent_state_rec_map
+    global nightlife_state_rec_map
+    global hotel_mf_map
+    global restaurent_mf_map
+    global nightlife_mf_map
+    global hotel_aecf_map
+    global restaurent_aecf_map
+    global nightlife_aecf_map
+
+    global PA_Hotel_Recommendation
+    global FL_Hotel_Recommendation
+    global TN_Hotel_Recommendation
+    global IN_Hotel_Recommendation
+    global MO_Hotel_Recommendation
+    global LA_Hotel_Recommendation
+    global AZ_Hotel_Recommendation
+    global NJ_Hotel_Recommendation
+    global NV_Hotel_Recommendation
+    global AB_Hotel_Recommendation
+
+    global PA_Restaurent_Recommendation
+    global FL_Restaurent_Recommendation
+    global TN_Restaurent_Recommendation
+    global IN_Restaurent_Recommendation
+    global MO_Restaurent_Recommendation
+    global LA_Restaurent_Recommendation
+    global AZ_Restaurent_Recommendation
+    global NJ_Restaurent_Recommendation
+    global NV_Restaurent_Recommendation
+    global AB_Restaurent_Recommendation
+
+    global PA_Nightlife_Recommendation
+    global FL_Nightlife_Recommendation
+    global TN_Nightlife_Recommendation
+    global IN_Nightlife_Recommendation
+    global MO_Nightlife_Recommendation
+    global LA_Nightlife_Recommendation
+    global AZ_Nightlife_Recommendation
+    global NJ_Nightlife_Recommendation
+    global NV_Nightlife_Recommendation
+    global AB_Nightlife_Recommendation
+
+    global PA_Hotel_MF
+    global FL_Hotel_MF
+    global TN_Hotel_MF
+    global IN_Hotel_MF
+    global MO_Hotel_MF
+    global LA_Hotel_MF
+    global AZ_Hotel_MF
+    global NJ_Hotel_MF
+    global NV_Hotel_MF
+    global AB_Hotel_MF
+
+    global PA_Restaurent_MF
+    global FL_Restaurent_MF
+    global TN_Restaurent_MF
+    global IN_Restaurent_MF
+    global MO_Restaurent_MF
+    global LA_Restaurent_MF
+    global AZ_Restaurent_MF
+    global NJ_Restaurent_MF
+    global NV_Restaurent_MF
+    global AB_Restaurent_MF
+
+    global PA_Nightlife_MF
+    global FL_Nightlife_MF
+    global TN_Nightlife_MF
+    global IN_Nightlife_MF
+    global MO_Nightlife_MF
+    global LA_Nightlife_MF
+    global AZ_Nightlife_MF
+    global NJ_Nightlife_MF
+    global NV_Nightlife_MF
+    global AB_Nightlife_MF
+
+    global PA_Hotel_AECF
+    global FL_Hotel_AECF
+    global TN_Hotel_AECF
+    global IN_Hotel_AECF
+    global MO_Hotel_AECF
+    global LA_Hotel_AECF
+    global AZ_Hotel_AECF
+    global NJ_Hotel_AECF
+    global NV_Hotel_AECF
+    global AB_Hotel_AECF
+
+    global PA_Restaurent_AECF
+    global FL_Restaurent_AECF
+    global TN_Restaurent_AECF
+    global IN_Restaurent_AECF
+    global MO_Restaurent_AECF
+    global LA_Restaurent_AECF
+    global AZ_Restaurent_AECF
+    global NJ_Restaurent_AECF
+    global NV_Restaurent_AECF
+    global AB_Restaurent_AECF
+
+    global PA_Nightlife_AECF
+    global FL_Nightlife_AECF
+    global TN_Nightlife_AECF
+    global IN_Nightlife_AECF
+    global MO_Nightlife_AECF
+    global LA_Nightlife_AECF
+    global AZ_Nightlife_AECF
+    global NJ_Nightlife_AECF
+    global NV_Nightlife_AECF
+    global AB_Nightlife_AECF
+
     hotel_state_rec_map['PA'] = PA_Hotel_Recommendation
     hotel_state_rec_map['FL'] = FL_Hotel_Recommendation
     hotel_state_rec_map['TN'] = TN_Hotel_Recommendation
