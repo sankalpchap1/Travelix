@@ -477,6 +477,106 @@ def helper_fun():
 
 # Write APIs here
 
+def completeMaps():
+    hotel_state_rec_map['PA'] = PA_Hotel_Recommendation
+    hotel_state_rec_map['FL'] = FL_Hotel_Recommendation
+    hotel_state_rec_map['TN'] = TN_Hotel_Recommendation
+    hotel_state_rec_map['IN'] = IN_Hotel_Recommendation
+    hotel_state_rec_map['MO'] = MO_Hotel_Recommendation
+    hotel_state_rec_map['LA'] = LA_Hotel_Recommendation
+    hotel_state_rec_map['AZ'] = AZ_Hotel_Recommendation
+    hotel_state_rec_map['NJ'] = NJ_Hotel_Recommendation
+    hotel_state_rec_map['NV'] = NV_Hotel_Recommendation
+    hotel_state_rec_map['AB'] = AB_Hotel_Recommendation
+
+    restaurent_state_rec_map['PA'] = PA_Restaurent_Recommendation
+    restaurent_state_rec_map['FL'] = FL_Restaurent_Recommendation
+    restaurent_state_rec_map['TN'] = TN_Restaurent_Recommendation
+    restaurent_state_rec_map['IN'] = IN_Restaurent_Recommendation
+    restaurent_state_rec_map['MO'] = MO_Restaurent_Recommendation
+    restaurent_state_rec_map['LA'] = LA_Restaurent_Recommendation
+    restaurent_state_rec_map['AZ'] = AZ_Restaurent_Recommendation
+    restaurent_state_rec_map['NJ'] = NJ_Restaurent_Recommendation
+    restaurent_state_rec_map['NV'] = NV_Restaurent_Recommendation
+    restaurent_state_rec_map['AB'] = AB_Restaurent_Recommendation
+
+    nightlife_state_rec_map['PA'] = PA_Nightlife_Recommendation
+    nightlife_state_rec_map['FL'] = FL_Nightlife_Recommendation
+    nightlife_state_rec_map['TN'] = TN_Nightlife_Recommendation
+    nightlife_state_rec_map['IN'] = IN_Nightlife_Recommendation
+    nightlife_state_rec_map['MO'] = MO_Nightlife_Recommendation
+    nightlife_state_rec_map['LA'] = LA_Nightlife_Recommendation
+    nightlife_state_rec_map['AZ'] = AZ_Nightlife_Recommendation
+    nightlife_state_rec_map['NJ'] = NJ_Nightlife_Recommendation
+    nightlife_state_rec_map['NV'] = NV_Nightlife_Recommendation
+    nightlife_state_rec_map['AB'] = AB_Nightlife_Recommendation
+
+    hotel_mf_map['PA'] = PA_Hotel_MF
+    hotel_mf_map['FL'] = FL_Hotel_MF
+    hotel_mf_map['TN'] = TN_Hotel_MF
+    hotel_mf_map['IN'] = IN_Hotel_MF
+    hotel_mf_map['MO'] = MO_Hotel_MF
+    hotel_mf_map['LA'] = LA_Hotel_MF
+    hotel_mf_map['AZ'] = AZ_Hotel_MF
+    hotel_mf_map['NJ'] = NJ_Hotel_MF
+    hotel_mf_map['NV'] = NV_Hotel_MF
+    hotel_mf_map['AB'] = AB_Hotel_MF
+
+    restaurent_mf_map['PA'] = PA_Restaurent_MF
+    restaurent_mf_map['FL'] = FL_Restaurent_MF
+    restaurent_mf_map['TN'] = TN_Restaurent_MF
+    restaurent_mf_map['IN'] = IN_Restaurent_MF
+    restaurent_mf_map['MO'] = MO_Restaurent_MF
+    restaurent_mf_map['LA'] = LA_Restaurent_MF
+    restaurent_mf_map['AZ'] = AZ_Restaurent_MF
+    restaurent_mf_map['NJ'] = NJ_Restaurent_MF
+    restaurent_mf_map['NV'] = NV_Restaurent_MF
+    restaurent_mf_map['AB'] = AB_Restaurent_MF
+
+    nightlife_mf_map['PA'] = PA_Nightlife_MF
+    nightlife_mf_map['FL'] = FL_Nightlife_MF
+    nightlife_mf_map['TN'] = TN_Nightlife_MF
+    nightlife_mf_map['IN'] = IN_Nightlife_MF
+    nightlife_mf_map['MO'] = MO_Nightlife_MF
+    nightlife_mf_map['LA'] = LA_Nightlife_MF
+    nightlife_mf_map['AZ'] = AZ_Nightlife_MF
+    nightlife_mf_map['NJ'] = NJ_Nightlife_MF
+    nightlife_mf_map['NV'] = NV_Nightlife_MF
+    nightlife_mf_map['AB'] = AB_Nightlife_MF
+
+    hotel_aecf_map['PA'] = PA_Hotel_AECF
+    hotel_aecf_map['FL'] = FL_Hotel_AECF
+    hotel_aecf_map['TN'] = TN_Hotel_AECF
+    hotel_aecf_map['IN'] = IN_Hotel_AECF
+    hotel_aecf_map['MO'] = MO_Hotel_AECF
+    hotel_aecf_map['LA'] = LA_Hotel_AECF
+    hotel_aecf_map['AZ'] = AZ_Hotel_AECF
+    hotel_aecf_map['NJ'] = NJ_Hotel_AECF
+    hotel_aecf_map['NV'] = NV_Hotel_AECF
+    hotel_aecf_map['AB'] = AB_Hotel_AECF
+
+    restaurent_aecf_map['PA'] = PA_Restaurent_AECF
+    restaurent_aecf_map['FL'] = FL_Restaurent_AECF
+    restaurent_aecf_map['TN'] = TN_Restaurent_AECF
+    restaurent_aecf_map['IN'] = IN_Restaurent_AECF
+    restaurent_aecf_map['MO'] = MO_Restaurent_AECF
+    restaurent_aecf_map['LA'] = LA_Restaurent_AECF
+    restaurent_aecf_map['AZ'] = AZ_Restaurent_AECF
+    restaurent_aecf_map['NJ'] = NJ_Restaurent_AECF
+    restaurent_aecf_map['NV'] = NV_Restaurent_AECF
+    restaurent_aecf_map['AB'] = AB_Restaurent_AECF
+
+    nightlife_aecf_map['PA'] = PA_Nightlife_AECF
+    nightlife_aecf_map['FL'] = FL_Nightlife_AECF
+    nightlife_aecf_map['TN'] = TN_Nightlife_AECF
+    nightlife_aecf_map['IN'] = IN_Nightlife_AECF
+    nightlife_aecf_map['MO'] = MO_Nightlife_AECF
+    nightlife_aecf_map['LA'] = LA_Nightlife_AECF
+    nightlife_aecf_map['AZ'] = AZ_Nightlife_AECF
+    nightlife_aecf_map['NJ'] = NJ_Nightlife_AECF
+    nightlife_aecf_map['NV'] = NV_Nightlife_AECF
+    nightlife_aecf_map['AB'] = AB_Nightlife_AECF
+
 
 @app.route('/profile')
 @cross_origin()
@@ -502,9 +602,9 @@ def getNPRRecommendation(rec_type, state_name, user_id):
     global nightlife_state_rec_map
     print("HOTEL MAP SIZE:")
     print(len(hotel_state_rec_map))
-    # if (len(hotel_state_rec_map) == 0 or len(restaurent_state_rec_map) == 0 or
-    #         len(nightlife_state_rec_map) == 0):
-    #     helper_fun()
+    if (len(hotel_state_rec_map) == 0 or len(restaurent_state_rec_map) == 0 or
+            len(nightlife_state_rec_map) == 0):
+        completeMaps()
 
     if rec_type == "hotel":
         recommendations_class = hotel_state_rec_map[state_name]
@@ -518,6 +618,17 @@ def getNPRRecommendation(rec_type, state_name, user_id):
         [{'name': business.name, 'address': business.address, 'city': business.city, 'state': business.state, 'postal_code': business.postal_code, 'stars': business.stars} for business in business_list])
 
 
+@app.route('/<int:user_id>/getNPR2')
+@cross_origin()
+def getNPRR2ecommendation(user_id):
+    global hotel_state_df_map
+    global reviews_df
+    recommendation_class = LA_Hotel_Recommendation
+    business_list = recommendation_class.getNPRForuUser(user_id)
+    return json.dumps(
+        [{'name': business.name, 'address': business.address, 'city': business.city, 'state': business.state, 'postal_code': business.postal_code, 'stars': business.stars} for business in business_list])
+
+
 @app.route('/<string:rec_type>/<string:state_name>/<int:user_id>/getMF')
 @cross_origin()
 def getMFRecommendation(rec_type, state_name, user_id):
@@ -527,11 +638,11 @@ def getMFRecommendation(rec_type, state_name, user_id):
     global hotel_state_rec_map
     global restaurent_state_rec_map
     global nightlife_state_rec_map
-    # if (len(hotel_mf_map) or len(restaurent_mf_map) or
-    #     len(nightlife_mf_map) or len(hotel_state_rec_map) == 0 or
-    #     len(restaurent_state_rec_map) == 0 or
-    #         len(nightlife_state_rec_map) == 0):
-    #     helper_fun()
+    if (len(hotel_mf_map) or len(restaurent_mf_map) or
+        len(nightlife_mf_map) or len(hotel_state_rec_map) == 0 or
+        len(restaurent_state_rec_map) == 0 or
+            len(nightlife_state_rec_map) == 0):
+        completeMaps()
 
     if rec_type == "hotel":
         mf_recommendations = hotel_mf_map[state_name]
@@ -566,11 +677,11 @@ def getAECFRecommendation(rec_type, state_name, user_id):
     global restaurent_state_rec_map
     global nightlife_state_rec_map
 
-    # if (len(hotel_aecf_map) or len(restaurent_aecf_map) or
-    #     len(nightlife_aecf_map) or len(hotel_state_rec_map) == 0 or
-    #     len(restaurent_state_rec_map) == 0 or
-    #         len(nightlife_state_rec_map) == 0):
-    #     helper_fun()
+    if (len(hotel_aecf_map) or len(restaurent_aecf_map) or
+        len(nightlife_aecf_map) or len(hotel_state_rec_map) == 0 or
+        len(restaurent_state_rec_map) == 0 or
+            len(nightlife_state_rec_map) == 0):
+        completeMaps()
 
     if rec_type == "hotel":
         aecf_recommendations = hotel_aecf_map[state_name]
