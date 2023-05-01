@@ -145,6 +145,22 @@ NV_Nightlife_AECF = None
 AB_Nightlife_AECF = None
 
 
+@app.route('/profile')
+@cross_origin()
+def my_profile():
+    response_body = {
+        "name": "Nagato",
+        "about": "Hello! I'm a full stack developer that loves python and javascript"
+    }
+    return response_body
+
+
+@app.route('/')
+@cross_origin()
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
+
+
 def loadCSV():
     print("Loading CSV Files...")
     print(datetime.datetime.now())
@@ -219,23 +235,23 @@ def decompress_pickle(file):
 
 
 def helper_fun():
-    # global hotel_state_rec_map
+    global hotel_state_rec_map
 
-    # global restaurent_state_rec_map
+    global restaurent_state_rec_map
 
-    # global nightlife_state_rec_map
+    global nightlife_state_rec_map
 
-    # global hotel_mf_map
+    global hotel_mf_map
 
-    # global restaurent_mf_map
+    global restaurent_mf_map
 
-    # global nightlife_mf_map
+    global nightlife_mf_map
 
-    # global hotel_aecf_map
+    global hotel_aecf_map
 
-    # global restaurent_aecf_map
+    global restaurent_aecf_map
 
-    # global nightlife_aecf_map
+    global nightlife_aecf_map
 
     print("Loading Hotel Data Files...")
     print(datetime.datetime.now())
@@ -576,231 +592,214 @@ def helper_fun():
 # nightlife_aecf_map = {}
 
 # Write APIs here
+# def completeMaps():
+#     global hotel_state_rec_map
+#     global restaurent_state_rec_map
+#     global nightlife_state_rec_map
+#     global hotel_mf_map
+#     global restaurent_mf_map
+#     global nightlife_mf_map
+#     global hotel_aecf_map
+#     global restaurent_aecf_map
+#     global nightlife_aecf_map
 
-def completeMaps():
-    global hotel_state_rec_map
-    global restaurent_state_rec_map
-    global nightlife_state_rec_map
-    global hotel_mf_map
-    global restaurent_mf_map
-    global nightlife_mf_map
-    global hotel_aecf_map
-    global restaurent_aecf_map
-    global nightlife_aecf_map
+#     global PA_Hotel_Recommendation
+#     global FL_Hotel_Recommendation
+#     global TN_Hotel_Recommendation
+#     global IN_Hotel_Recommendation
+#     global MO_Hotel_Recommendation
+#     global LA_Hotel_Recommendation
+#     global AZ_Hotel_Recommendation
+#     global NJ_Hotel_Recommendation
+#     global NV_Hotel_Recommendation
+#     global AB_Hotel_Recommendation
 
-    global PA_Hotel_Recommendation
-    global FL_Hotel_Recommendation
-    global TN_Hotel_Recommendation
-    global IN_Hotel_Recommendation
-    global MO_Hotel_Recommendation
-    global LA_Hotel_Recommendation
-    global AZ_Hotel_Recommendation
-    global NJ_Hotel_Recommendation
-    global NV_Hotel_Recommendation
-    global AB_Hotel_Recommendation
+#     global PA_Restaurent_Recommendation
+#     global FL_Restaurent_Recommendation
+#     global TN_Restaurent_Recommendation
+#     global IN_Restaurent_Recommendation
+#     global MO_Restaurent_Recommendation
+#     global LA_Restaurent_Recommendation
+#     global AZ_Restaurent_Recommendation
+#     global NJ_Restaurent_Recommendation
+#     global NV_Restaurent_Recommendation
+#     global AB_Restaurent_Recommendation
 
-    global PA_Restaurent_Recommendation
-    global FL_Restaurent_Recommendation
-    global TN_Restaurent_Recommendation
-    global IN_Restaurent_Recommendation
-    global MO_Restaurent_Recommendation
-    global LA_Restaurent_Recommendation
-    global AZ_Restaurent_Recommendation
-    global NJ_Restaurent_Recommendation
-    global NV_Restaurent_Recommendation
-    global AB_Restaurent_Recommendation
+#     global PA_Nightlife_Recommendation
+#     global FL_Nightlife_Recommendation
+#     global TN_Nightlife_Recommendation
+#     global IN_Nightlife_Recommendation
+#     global MO_Nightlife_Recommendation
+#     global LA_Nightlife_Recommendation
+#     global AZ_Nightlife_Recommendation
+#     global NJ_Nightlife_Recommendation
+#     global NV_Nightlife_Recommendation
+#     global AB_Nightlife_Recommendation
 
-    global PA_Nightlife_Recommendation
-    global FL_Nightlife_Recommendation
-    global TN_Nightlife_Recommendation
-    global IN_Nightlife_Recommendation
-    global MO_Nightlife_Recommendation
-    global LA_Nightlife_Recommendation
-    global AZ_Nightlife_Recommendation
-    global NJ_Nightlife_Recommendation
-    global NV_Nightlife_Recommendation
-    global AB_Nightlife_Recommendation
+#     global PA_Hotel_MF
+#     global FL_Hotel_MF
+#     global TN_Hotel_MF
+#     global IN_Hotel_MF
+#     global MO_Hotel_MF
+#     global LA_Hotel_MF
+#     global AZ_Hotel_MF
+#     global NJ_Hotel_MF
+#     global NV_Hotel_MF
+#     global AB_Hotel_MF
 
-    global PA_Hotel_MF
-    global FL_Hotel_MF
-    global TN_Hotel_MF
-    global IN_Hotel_MF
-    global MO_Hotel_MF
-    global LA_Hotel_MF
-    global AZ_Hotel_MF
-    global NJ_Hotel_MF
-    global NV_Hotel_MF
-    global AB_Hotel_MF
+#     global PA_Restaurent_MF
+#     global FL_Restaurent_MF
+#     global TN_Restaurent_MF
+#     global IN_Restaurent_MF
+#     global MO_Restaurent_MF
+#     global LA_Restaurent_MF
+#     global AZ_Restaurent_MF
+#     global NJ_Restaurent_MF
+#     global NV_Restaurent_MF
+#     global AB_Restaurent_MF
 
-    global PA_Restaurent_MF
-    global FL_Restaurent_MF
-    global TN_Restaurent_MF
-    global IN_Restaurent_MF
-    global MO_Restaurent_MF
-    global LA_Restaurent_MF
-    global AZ_Restaurent_MF
-    global NJ_Restaurent_MF
-    global NV_Restaurent_MF
-    global AB_Restaurent_MF
+#     global PA_Nightlife_MF
+#     global FL_Nightlife_MF
+#     global TN_Nightlife_MF
+#     global IN_Nightlife_MF
+#     global MO_Nightlife_MF
+#     global LA_Nightlife_MF
+#     global AZ_Nightlife_MF
+#     global NJ_Nightlife_MF
+#     global NV_Nightlife_MF
+#     global AB_Nightlife_MF
 
-    global PA_Nightlife_MF
-    global FL_Nightlife_MF
-    global TN_Nightlife_MF
-    global IN_Nightlife_MF
-    global MO_Nightlife_MF
-    global LA_Nightlife_MF
-    global AZ_Nightlife_MF
-    global NJ_Nightlife_MF
-    global NV_Nightlife_MF
-    global AB_Nightlife_MF
+#     global PA_Hotel_AECF
+#     global FL_Hotel_AECF
+#     global TN_Hotel_AECF
+#     global IN_Hotel_AECF
+#     global MO_Hotel_AECF
+#     global LA_Hotel_AECF
+#     global AZ_Hotel_AECF
+#     global NJ_Hotel_AECF
+#     global NV_Hotel_AECF
+#     global AB_Hotel_AECF
 
-    global PA_Hotel_AECF
-    global FL_Hotel_AECF
-    global TN_Hotel_AECF
-    global IN_Hotel_AECF
-    global MO_Hotel_AECF
-    global LA_Hotel_AECF
-    global AZ_Hotel_AECF
-    global NJ_Hotel_AECF
-    global NV_Hotel_AECF
-    global AB_Hotel_AECF
+#     global PA_Restaurent_AECF
+#     global FL_Restaurent_AECF
+#     global TN_Restaurent_AECF
+#     global IN_Restaurent_AECF
+#     global MO_Restaurent_AECF
+#     global LA_Restaurent_AECF
+#     global AZ_Restaurent_AECF
+#     global NJ_Restaurent_AECF
+#     global NV_Restaurent_AECF
+#     global AB_Restaurent_AECF
 
-    global PA_Restaurent_AECF
-    global FL_Restaurent_AECF
-    global TN_Restaurent_AECF
-    global IN_Restaurent_AECF
-    global MO_Restaurent_AECF
-    global LA_Restaurent_AECF
-    global AZ_Restaurent_AECF
-    global NJ_Restaurent_AECF
-    global NV_Restaurent_AECF
-    global AB_Restaurent_AECF
+#     global PA_Nightlife_AECF
+#     global FL_Nightlife_AECF
+#     global TN_Nightlife_AECF
+#     global IN_Nightlife_AECF
+#     global MO_Nightlife_AECF
+#     global LA_Nightlife_AECF
+#     global AZ_Nightlife_AECF
+#     global NJ_Nightlife_AECF
+#     global NV_Nightlife_AECF
+#     global AB_Nightlife_AECF
 
-    global PA_Nightlife_AECF
-    global FL_Nightlife_AECF
-    global TN_Nightlife_AECF
-    global IN_Nightlife_AECF
-    global MO_Nightlife_AECF
-    global LA_Nightlife_AECF
-    global AZ_Nightlife_AECF
-    global NJ_Nightlife_AECF
-    global NV_Nightlife_AECF
-    global AB_Nightlife_AECF
+#     hotel_state_rec_map['PA'] = PA_Hotel_Recommendation
+#     hotel_state_rec_map['FL'] = FL_Hotel_Recommendation
+#     hotel_state_rec_map['TN'] = TN_Hotel_Recommendation
+#     hotel_state_rec_map['IN'] = IN_Hotel_Recommendation
+#     hotel_state_rec_map['MO'] = MO_Hotel_Recommendation
+#     hotel_state_rec_map['LA'] = LA_Hotel_Recommendation
+#     hotel_state_rec_map['AZ'] = AZ_Hotel_Recommendation
+#     hotel_state_rec_map['NJ'] = NJ_Hotel_Recommendation
+#     hotel_state_rec_map['NV'] = NV_Hotel_Recommendation
+#     hotel_state_rec_map['AB'] = AB_Hotel_Recommendation
 
-    hotel_state_rec_map['PA'] = PA_Hotel_Recommendation
-    hotel_state_rec_map['FL'] = FL_Hotel_Recommendation
-    hotel_state_rec_map['TN'] = TN_Hotel_Recommendation
-    hotel_state_rec_map['IN'] = IN_Hotel_Recommendation
-    hotel_state_rec_map['MO'] = MO_Hotel_Recommendation
-    hotel_state_rec_map['LA'] = LA_Hotel_Recommendation
-    hotel_state_rec_map['AZ'] = AZ_Hotel_Recommendation
-    hotel_state_rec_map['NJ'] = NJ_Hotel_Recommendation
-    hotel_state_rec_map['NV'] = NV_Hotel_Recommendation
-    hotel_state_rec_map['AB'] = AB_Hotel_Recommendation
+#     restaurent_state_rec_map['PA'] = PA_Restaurent_Recommendation
+#     restaurent_state_rec_map['FL'] = FL_Restaurent_Recommendation
+#     restaurent_state_rec_map['TN'] = TN_Restaurent_Recommendation
+#     restaurent_state_rec_map['IN'] = IN_Restaurent_Recommendation
+#     restaurent_state_rec_map['MO'] = MO_Restaurent_Recommendation
+#     restaurent_state_rec_map['LA'] = LA_Restaurent_Recommendation
+#     restaurent_state_rec_map['AZ'] = AZ_Restaurent_Recommendation
+#     restaurent_state_rec_map['NJ'] = NJ_Restaurent_Recommendation
+#     restaurent_state_rec_map['NV'] = NV_Restaurent_Recommendation
+#     restaurent_state_rec_map['AB'] = AB_Restaurent_Recommendation
 
-    restaurent_state_rec_map['PA'] = PA_Restaurent_Recommendation
-    restaurent_state_rec_map['FL'] = FL_Restaurent_Recommendation
-    restaurent_state_rec_map['TN'] = TN_Restaurent_Recommendation
-    restaurent_state_rec_map['IN'] = IN_Restaurent_Recommendation
-    restaurent_state_rec_map['MO'] = MO_Restaurent_Recommendation
-    restaurent_state_rec_map['LA'] = LA_Restaurent_Recommendation
-    restaurent_state_rec_map['AZ'] = AZ_Restaurent_Recommendation
-    restaurent_state_rec_map['NJ'] = NJ_Restaurent_Recommendation
-    restaurent_state_rec_map['NV'] = NV_Restaurent_Recommendation
-    restaurent_state_rec_map['AB'] = AB_Restaurent_Recommendation
+#     nightlife_state_rec_map['PA'] = PA_Nightlife_Recommendation
+#     nightlife_state_rec_map['FL'] = FL_Nightlife_Recommendation
+#     nightlife_state_rec_map['TN'] = TN_Nightlife_Recommendation
+#     nightlife_state_rec_map['IN'] = IN_Nightlife_Recommendation
+#     nightlife_state_rec_map['MO'] = MO_Nightlife_Recommendation
+#     nightlife_state_rec_map['LA'] = LA_Nightlife_Recommendation
+#     nightlife_state_rec_map['AZ'] = AZ_Nightlife_Recommendation
+#     nightlife_state_rec_map['NJ'] = NJ_Nightlife_Recommendation
+#     nightlife_state_rec_map['NV'] = NV_Nightlife_Recommendation
+#     nightlife_state_rec_map['AB'] = AB_Nightlife_Recommendation
 
-    nightlife_state_rec_map['PA'] = PA_Nightlife_Recommendation
-    nightlife_state_rec_map['FL'] = FL_Nightlife_Recommendation
-    nightlife_state_rec_map['TN'] = TN_Nightlife_Recommendation
-    nightlife_state_rec_map['IN'] = IN_Nightlife_Recommendation
-    nightlife_state_rec_map['MO'] = MO_Nightlife_Recommendation
-    nightlife_state_rec_map['LA'] = LA_Nightlife_Recommendation
-    nightlife_state_rec_map['AZ'] = AZ_Nightlife_Recommendation
-    nightlife_state_rec_map['NJ'] = NJ_Nightlife_Recommendation
-    nightlife_state_rec_map['NV'] = NV_Nightlife_Recommendation
-    nightlife_state_rec_map['AB'] = AB_Nightlife_Recommendation
+#     hotel_mf_map['PA'] = PA_Hotel_MF
+#     hotel_mf_map['FL'] = FL_Hotel_MF
+#     hotel_mf_map['TN'] = TN_Hotel_MF
+#     hotel_mf_map['IN'] = IN_Hotel_MF
+#     hotel_mf_map['MO'] = MO_Hotel_MF
+#     hotel_mf_map['LA'] = LA_Hotel_MF
+#     hotel_mf_map['AZ'] = AZ_Hotel_MF
+#     hotel_mf_map['NJ'] = NJ_Hotel_MF
+#     hotel_mf_map['NV'] = NV_Hotel_MF
+#     hotel_mf_map['AB'] = AB_Hotel_MF
 
-    hotel_mf_map['PA'] = PA_Hotel_MF
-    hotel_mf_map['FL'] = FL_Hotel_MF
-    hotel_mf_map['TN'] = TN_Hotel_MF
-    hotel_mf_map['IN'] = IN_Hotel_MF
-    hotel_mf_map['MO'] = MO_Hotel_MF
-    hotel_mf_map['LA'] = LA_Hotel_MF
-    hotel_mf_map['AZ'] = AZ_Hotel_MF
-    hotel_mf_map['NJ'] = NJ_Hotel_MF
-    hotel_mf_map['NV'] = NV_Hotel_MF
-    hotel_mf_map['AB'] = AB_Hotel_MF
+#     restaurent_mf_map['PA'] = PA_Restaurent_MF
+#     restaurent_mf_map['FL'] = FL_Restaurent_MF
+#     restaurent_mf_map['TN'] = TN_Restaurent_MF
+#     restaurent_mf_map['IN'] = IN_Restaurent_MF
+#     restaurent_mf_map['MO'] = MO_Restaurent_MF
+#     restaurent_mf_map['LA'] = LA_Restaurent_MF
+#     restaurent_mf_map['AZ'] = AZ_Restaurent_MF
+#     restaurent_mf_map['NJ'] = NJ_Restaurent_MF
+#     restaurent_mf_map['NV'] = NV_Restaurent_MF
+#     restaurent_mf_map['AB'] = AB_Restaurent_MF
 
-    restaurent_mf_map['PA'] = PA_Restaurent_MF
-    restaurent_mf_map['FL'] = FL_Restaurent_MF
-    restaurent_mf_map['TN'] = TN_Restaurent_MF
-    restaurent_mf_map['IN'] = IN_Restaurent_MF
-    restaurent_mf_map['MO'] = MO_Restaurent_MF
-    restaurent_mf_map['LA'] = LA_Restaurent_MF
-    restaurent_mf_map['AZ'] = AZ_Restaurent_MF
-    restaurent_mf_map['NJ'] = NJ_Restaurent_MF
-    restaurent_mf_map['NV'] = NV_Restaurent_MF
-    restaurent_mf_map['AB'] = AB_Restaurent_MF
+#     nightlife_mf_map['PA'] = PA_Nightlife_MF
+#     nightlife_mf_map['FL'] = FL_Nightlife_MF
+#     nightlife_mf_map['TN'] = TN_Nightlife_MF
+#     nightlife_mf_map['IN'] = IN_Nightlife_MF
+#     nightlife_mf_map['MO'] = MO_Nightlife_MF
+#     nightlife_mf_map['LA'] = LA_Nightlife_MF
+#     nightlife_mf_map['AZ'] = AZ_Nightlife_MF
+#     nightlife_mf_map['NJ'] = NJ_Nightlife_MF
+#     nightlife_mf_map['NV'] = NV_Nightlife_MF
+#     nightlife_mf_map['AB'] = AB_Nightlife_MF
 
-    nightlife_mf_map['PA'] = PA_Nightlife_MF
-    nightlife_mf_map['FL'] = FL_Nightlife_MF
-    nightlife_mf_map['TN'] = TN_Nightlife_MF
-    nightlife_mf_map['IN'] = IN_Nightlife_MF
-    nightlife_mf_map['MO'] = MO_Nightlife_MF
-    nightlife_mf_map['LA'] = LA_Nightlife_MF
-    nightlife_mf_map['AZ'] = AZ_Nightlife_MF
-    nightlife_mf_map['NJ'] = NJ_Nightlife_MF
-    nightlife_mf_map['NV'] = NV_Nightlife_MF
-    nightlife_mf_map['AB'] = AB_Nightlife_MF
+#     hotel_aecf_map['PA'] = PA_Hotel_AECF
+#     hotel_aecf_map['FL'] = FL_Hotel_AECF
+#     hotel_aecf_map['TN'] = TN_Hotel_AECF
+#     hotel_aecf_map['IN'] = IN_Hotel_AECF
+#     hotel_aecf_map['MO'] = MO_Hotel_AECF
+#     hotel_aecf_map['LA'] = LA_Hotel_AECF
+#     hotel_aecf_map['AZ'] = AZ_Hotel_AECF
+#     hotel_aecf_map['NJ'] = NJ_Hotel_AECF
+#     hotel_aecf_map['NV'] = NV_Hotel_AECF
+#     hotel_aecf_map['AB'] = AB_Hotel_AECF
 
-    hotel_aecf_map['PA'] = PA_Hotel_AECF
-    hotel_aecf_map['FL'] = FL_Hotel_AECF
-    hotel_aecf_map['TN'] = TN_Hotel_AECF
-    hotel_aecf_map['IN'] = IN_Hotel_AECF
-    hotel_aecf_map['MO'] = MO_Hotel_AECF
-    hotel_aecf_map['LA'] = LA_Hotel_AECF
-    hotel_aecf_map['AZ'] = AZ_Hotel_AECF
-    hotel_aecf_map['NJ'] = NJ_Hotel_AECF
-    hotel_aecf_map['NV'] = NV_Hotel_AECF
-    hotel_aecf_map['AB'] = AB_Hotel_AECF
+#     restaurent_aecf_map['PA'] = PA_Restaurent_AECF
+#     restaurent_aecf_map['FL'] = FL_Restaurent_AECF
+#     restaurent_aecf_map['TN'] = TN_Restaurent_AECF
+#     restaurent_aecf_map['IN'] = IN_Restaurent_AECF
+#     restaurent_aecf_map['MO'] = MO_Restaurent_AECF
+#     restaurent_aecf_map['LA'] = LA_Restaurent_AECF
+#     restaurent_aecf_map['AZ'] = AZ_Restaurent_AECF
+#     restaurent_aecf_map['NJ'] = NJ_Restaurent_AECF
+#     restaurent_aecf_map['NV'] = NV_Restaurent_AECF
+#     restaurent_aecf_map['AB'] = AB_Restaurent_AECF
 
-    restaurent_aecf_map['PA'] = PA_Restaurent_AECF
-    restaurent_aecf_map['FL'] = FL_Restaurent_AECF
-    restaurent_aecf_map['TN'] = TN_Restaurent_AECF
-    restaurent_aecf_map['IN'] = IN_Restaurent_AECF
-    restaurent_aecf_map['MO'] = MO_Restaurent_AECF
-    restaurent_aecf_map['LA'] = LA_Restaurent_AECF
-    restaurent_aecf_map['AZ'] = AZ_Restaurent_AECF
-    restaurent_aecf_map['NJ'] = NJ_Restaurent_AECF
-    restaurent_aecf_map['NV'] = NV_Restaurent_AECF
-    restaurent_aecf_map['AB'] = AB_Restaurent_AECF
-
-    nightlife_aecf_map['PA'] = PA_Nightlife_AECF
-    nightlife_aecf_map['FL'] = FL_Nightlife_AECF
-    nightlife_aecf_map['TN'] = TN_Nightlife_AECF
-    nightlife_aecf_map['IN'] = IN_Nightlife_AECF
-    nightlife_aecf_map['MO'] = MO_Nightlife_AECF
-    nightlife_aecf_map['LA'] = LA_Nightlife_AECF
-    nightlife_aecf_map['AZ'] = AZ_Nightlife_AECF
-    nightlife_aecf_map['NJ'] = NJ_Nightlife_AECF
-    nightlife_aecf_map['NV'] = NV_Nightlife_AECF
-    nightlife_aecf_map['AB'] = AB_Nightlife_AECF
-
-
-@app.route('/profile')
-@cross_origin()
-def my_profile():
-    response_body = {
-        "name": "Nagato",
-        "about": "Hello! I'm a full stack developer that loves python and javascript"
-    }
-    return response_body
-
-
-@app.route('/')
-@cross_origin()
-def serve():
-    return send_from_directory(app.static_folder, 'index.html')
+#     nightlife_aecf_map['PA'] = PA_Nightlife_AECF
+#     nightlife_aecf_map['FL'] = FL_Nightlife_AECF
+#     nightlife_aecf_map['TN'] = TN_Nightlife_AECF
+#     nightlife_aecf_map['IN'] = IN_Nightlife_AECF
+#     nightlife_aecf_map['MO'] = MO_Nightlife_AECF
+#     nightlife_aecf_map['LA'] = LA_Nightlife_AECF
+#     nightlife_aecf_map['AZ'] = AZ_Nightlife_AECF
+#     nightlife_aecf_map['NJ'] = NJ_Nightlife_AECF
+#     nightlife_aecf_map['NV'] = NV_Nightlife_AECF
+#     nightlife_aecf_map['AB'] = AB_Nightlife_AECF
 
 
 @app.route('/<string:rec_type>/<string:state_name>/<int:user_id>/getNPR')
@@ -813,7 +812,7 @@ def getNPRRecommendation(rec_type, state_name, user_id):
     print(len(hotel_state_rec_map))
     if (len(hotel_state_rec_map) == 0 or len(restaurent_state_rec_map) == 0 or
             len(nightlife_state_rec_map) == 0):
-        completeMaps()
+        helper_fun()
 
     if rec_type == "hotel":
         recommendations_class = hotel_state_rec_map[state_name]
@@ -851,7 +850,7 @@ def getMFRecommendation(rec_type, state_name, user_id):
         len(nightlife_mf_map) or len(hotel_state_rec_map) == 0 or
         len(restaurent_state_rec_map) == 0 or
             len(nightlife_state_rec_map) == 0):
-        completeMaps()
+        helper_fun()
 
     if rec_type == "hotel":
         mf_recommendations = hotel_mf_map[state_name]
@@ -890,7 +889,7 @@ def getAECFRecommendation(rec_type, state_name, user_id):
         len(nightlife_aecf_map) or len(hotel_state_rec_map) == 0 or
         len(restaurent_state_rec_map) == 0 or
             len(nightlife_state_rec_map) == 0):
-        completeMaps()
+        helper_fun()
 
     if rec_type == "hotel":
         aecf_recommendations = hotel_aecf_map[state_name]
@@ -1050,319 +1049,318 @@ if __name__ == '__main__':
     # global restaurent_aecf_map
     #
     # global nightlife_aecf_map
-    print("Loading Hotel Data Files...")
-    print(datetime.datetime.now())
-    PA_Hotel_Recommendation = decompress_pickle(
-        "data/hotel/PA_Hotel_Recommendation.pbz2")
-    hotel_state_rec_map['PA'] = PA_Hotel_Recommendation
-    FL_Hotel_Recommendation = decompress_pickle(
-        "data/hotel/FL_Hotel_Recommendation.pbz2")
-    hotel_state_rec_map['FL'] = FL_Hotel_Recommendation
-    TN_Hotel_Recommendation = decompress_pickle(
-        "data/hotel/TN_Hotel_Recommendation.pbz2")
-    hotel_state_rec_map['TN'] = TN_Hotel_Recommendation
-    IN_Hotel_Recommendation = decompress_pickle(
-        "data/hotel/IN_Hotel_Recommendation.pbz2")
-    hotel_state_rec_map['IN'] = IN_Hotel_Recommendation
-    MO_Hotel_Recommendation = decompress_pickle(
-        "data/hotel/MO_Hotel_Recommendation.pbz2")
-    hotel_state_rec_map['MO'] = MO_Hotel_Recommendation
-    LA_Hotel_Recommendation = decompress_pickle(
-        "data/hotel/LA_Hotel_Recommendation.pbz2")
-    hotel_state_rec_map['LA'] = LA_Hotel_Recommendation
-    AZ_Hotel_Recommendation = decompress_pickle(
-        "data/hotel/AZ_Hotel_Recommendation.pbz2")
-    hotel_state_rec_map['AZ'] = AZ_Hotel_Recommendation
-    NJ_Hotel_Recommendation = decompress_pickle(
-        "data/hotel/NJ_Hotel_Recommendation.pbz2")
-    hotel_state_rec_map['NJ'] = NJ_Hotel_Recommendation
-    NV_Hotel_Recommendation = decompress_pickle(
-        "data/hotel/NV_Hotel_Recommendation.pbz2")
-    hotel_state_rec_map['NV'] = NV_Hotel_Recommendation
-    AB_Hotel_Recommendation = decompress_pickle(
-        "data/hotel/AB_Hotel_Recommendation.pbz2")
-    hotel_state_rec_map['AB'] = AB_Hotel_Recommendation
-    print("Loading Hotel Data Files Completed...")
-    print(datetime.datetime.now())
-    print("\n")
+    # print("Loading Hotel Data Files...")
+    # print(datetime.datetime.now())
+    # PA_Hotel_Recommendation = decompress_pickle(
+    #     "data/hotel/PA_Hotel_Recommendation.pbz2")
+    # # hotel_state_rec_map['PA'] = PA_Hotel_Recommendation
+    # FL_Hotel_Recommendation = decompress_pickle(
+    #     "data/hotel/FL_Hotel_Recommendation.pbz2")
+    # # hotel_state_rec_map['FL'] = FL_Hotel_Recommendation
+    # TN_Hotel_Recommendation = decompress_pickle(
+    #     "data/hotel/TN_Hotel_Recommendation.pbz2")
+    # # hotel_state_rec_map['TN'] = TN_Hotel_Recommendation
+    # IN_Hotel_Recommendation = decompress_pickle(
+    #     "data/hotel/IN_Hotel_Recommendation.pbz2")
+    # # hotel_state_rec_map['IN'] = IN_Hotel_Recommendation
+    # MO_Hotel_Recommendation = decompress_pickle(
+    #     "data/hotel/MO_Hotel_Recommendation.pbz2")
+    # # hotel_state_rec_map['MO'] = MO_Hotel_Recommendation
+    # LA_Hotel_Recommendation = decompress_pickle(
+    #     "data/hotel/LA_Hotel_Recommendation.pbz2")
+    # # hotel_state_rec_map['LA'] = LA_Hotel_Recommendation
+    # AZ_Hotel_Recommendation = decompress_pickle(
+    #     "data/hotel/AZ_Hotel_Recommendation.pbz2")
+    # # hotel_state_rec_map['AZ'] = AZ_Hotel_Recommendation
+    # NJ_Hotel_Recommendation = decompress_pickle(
+    #     "data/hotel/NJ_Hotel_Recommendation.pbz2")
+    # # hotel_state_rec_map['NJ'] = NJ_Hotel_Recommendation
+    # NV_Hotel_Recommendation = decompress_pickle(
+    #     "data/hotel/NV_Hotel_Recommendation.pbz2")
+    # # hotel_state_rec_map['NV'] = NV_Hotel_Recommendation
+    # AB_Hotel_Recommendation = decompress_pickle(
+    #     "data/hotel/AB_Hotel_Recommendation.pbz2")
+    # # hotel_state_rec_map['AB'] = AB_Hotel_Recommendation
+    # print("Loading Hotel Data Files Completed...")
+    # print(datetime.datetime.now())
+    # print("\n")
 
-    print("Loading Restaurent Data Files...")
-    print(datetime.datetime.now())
-    PA_Restaurent_Recommendation = decompress_pickle(
-        "data/restaurent/PA_Restaurent_Recommendation.pbz2")
-    restaurent_state_rec_map['PA'] = PA_Restaurent_Recommendation
-    FL_Restaurent_Recommendation = decompress_pickle(
-        "data/restaurent/FL_Restaurent_Recommendation.pbz2")
-    restaurent_state_rec_map['FL'] = FL_Restaurent_Recommendation
-    TN_Restaurent_Recommendation = decompress_pickle(
-        "data/restaurent/TN_Restaurent_Recommendation.pbz2")
-    restaurent_state_rec_map['TN'] = TN_Restaurent_Recommendation
-    IN_Restaurent_Recommendation = decompress_pickle(
-        "data/restaurent/IN_Restaurent_Recommendation.pbz2")
-    restaurent_state_rec_map['IN'] = IN_Restaurent_Recommendation
-    MO_Restaurent_Recommendation = decompress_pickle(
-        "data/restaurent/MO_Restaurent_Recommendation.pbz2")
-    restaurent_state_rec_map['MO'] = MO_Restaurent_Recommendation
-    LA_Restaurent_Recommendation = decompress_pickle(
-        "data/restaurent/LA_Restaurent_Recommendation.pbz2")
-    restaurent_state_rec_map['LA'] = LA_Restaurent_Recommendation
-    AZ_Restaurent_Recommendation = decompress_pickle(
-        "data/restaurent/AZ_Restaurent_Recommendation.pbz2")
-    restaurent_state_rec_map['AZ'] = AZ_Restaurent_Recommendation
-    NJ_Restaurent_Recommendation = decompress_pickle(
-        "data/restaurent/NJ_Restaurent_Recommendation.pbz2")
-    restaurent_state_rec_map['NJ'] = NJ_Restaurent_Recommendation
-    NV_Restaurent_Recommendation = decompress_pickle(
-        "data/restaurent/NV_Restaurent_Recommendation.pbz2")
-    restaurent_state_rec_map['NV'] = NV_Restaurent_Recommendation
-    AB_Restaurent_Recommendation = decompress_pickle(
-        "data/restaurent/AB_Restaurent_Recommendation.pbz2")
-    restaurent_state_rec_map['AB'] = AB_Restaurent_Recommendation
-    print("Loading Restaurent Data Files Completed...")
-    print(datetime.datetime.now())
-    print("\n")
+    # print("Loading Restaurent Data Files...")
+    # print(datetime.datetime.now())
+    # PA_Restaurent_Recommendation = decompress_pickle(
+    #     "data/restaurent/PA_Restaurent_Recommendation.pbz2")
+    # # restaurent_state_rec_map['PA'] = PA_Restaurent_Recommendation
+    # FL_Restaurent_Recommendation = decompress_pickle(
+    #     "data/restaurent/FL_Restaurent_Recommendation.pbz2")
+    # # restaurent_state_rec_map['FL'] = FL_Restaurent_Recommendation
+    # TN_Restaurent_Recommendation = decompress_pickle(
+    #     "data/restaurent/TN_Restaurent_Recommendation.pbz2")
+    # # restaurent_state_rec_map['TN'] = TN_Restaurent_Recommendation
+    # IN_Restaurent_Recommendation = decompress_pickle(
+    #     "data/restaurent/IN_Restaurent_Recommendation.pbz2")
+    # # restaurent_state_rec_map['IN'] = IN_Restaurent_Recommendation
+    # MO_Restaurent_Recommendation = decompress_pickle(
+    #     "data/restaurent/MO_Restaurent_Recommendation.pbz2")
+    # # restaurent_state_rec_map['MO'] = MO_Restaurent_Recommendation
+    # LA_Restaurent_Recommendation = decompress_pickle(
+    #     "data/restaurent/LA_Restaurent_Recommendation.pbz2")
+    # # restaurent_state_rec_map['LA'] = LA_Restaurent_Recommendation
+    # AZ_Restaurent_Recommendation = decompress_pickle(
+    #     "data/restaurent/AZ_Restaurent_Recommendation.pbz2")
+    # # restaurent_state_rec_map['AZ'] = AZ_Restaurent_Recommendation
+    # NJ_Restaurent_Recommendation = decompress_pickle(
+    #     "data/restaurent/NJ_Restaurent_Recommendation.pbz2")
+    # # restaurent_state_rec_map['NJ'] = NJ_Restaurent_Recommendation
+    # NV_Restaurent_Recommendation = decompress_pickle(
+    #     "data/restaurent/NV_Restaurent_Recommendation.pbz2")
+    # # restaurent_state_rec_map['NV'] = NV_Restaurent_Recommendation
+    # AB_Restaurent_Recommendation = decompress_pickle(
+    #     "data/restaurent/AB_Restaurent_Recommendation.pbz2")
+    # # restaurent_state_rec_map['AB'] = AB_Restaurent_Recommendation
+    # print("Loading Restaurent Data Files Completed...")
+    # print(datetime.datetime.now())
+    # print("\n")
 
-    print("Loading Nightlife Data Files...")
-    print(datetime.datetime.now())
-    PA_Nightlife_Recommendation = decompress_pickle(
-        "data/nightlife/PA_Nightlife_Recommendation.pbz2")
-    nightlife_state_rec_map['PA'] = PA_Nightlife_Recommendation
-    FL_Nightlife_Recommendation = decompress_pickle(
-        "data/nightlife/FL_Nightlife_Recommendation.pbz2")
-    nightlife_state_rec_map['FL'] = FL_Nightlife_Recommendation
-    TN_Nightlife_Recommendation = decompress_pickle(
-        "data/nightlife/TN_Nightlife_Recommendation.pbz2")
-    nightlife_state_rec_map['TN'] = TN_Nightlife_Recommendation
-    IN_Nightlife_Recommendation = decompress_pickle(
-        "data/nightlife/IN_Nightlife_Recommendation.pbz2")
-    nightlife_state_rec_map['IN'] = IN_Nightlife_Recommendation
-    MO_Nightlife_Recommendation = decompress_pickle(
-        "data/nightlife/MO_Nightlife_Recommendation.pbz2")
-    nightlife_state_rec_map['MO'] = MO_Nightlife_Recommendation
-    LA_Nightlife_Recommendation = decompress_pickle(
-        "data/nightlife/LA_Nightlife_Recommendation.pbz2")
-    nightlife_state_rec_map['LA'] = LA_Nightlife_Recommendation
-    AZ_Nightlife_Recommendation = decompress_pickle(
-        "data/nightlife/AZ_Nightlife_Recommendation.pbz2")
-    nightlife_state_rec_map['AZ'] = AZ_Nightlife_Recommendation
-    NJ_Nightlife_Recommendation = decompress_pickle(
-        "data/nightlife/NJ_Nightlife_Recommendation.pbz2")
-    nightlife_state_rec_map['NJ'] = NJ_Nightlife_Recommendation
-    NV_Nightlife_Recommendation = decompress_pickle(
-        "data/nightlife/NV_Nightlife_Recommendation.pbz2")
-    nightlife_state_rec_map['NV'] = NV_Nightlife_Recommendation
-    AB_Nightlife_Recommendation = decompress_pickle(
-        "data/nightlife/AB_Nightlife_Recommendation.pbz2")
-    nightlife_state_rec_map['AB'] = AB_Nightlife_Recommendation
-    print("Loading Nightlife Data Files Completed...")
-    print(datetime.datetime.now())
-    print("\n")
+    # print("Loading Nightlife Data Files...")
+    # print(datetime.datetime.now())
+    # PA_Nightlife_Recommendation = decompress_pickle(
+    #     "data/nightlife/PA_Nightlife_Recommendation.pbz2")
+    # # nightlife_state_rec_map['PA'] = PA_Nightlife_Recommendation
+    # FL_Nightlife_Recommendation = decompress_pickle(
+    #     "data/nightlife/FL_Nightlife_Recommendation.pbz2")
+    # # nightlife_state_rec_map['FL'] = FL_Nightlife_Recommendation
+    # TN_Nightlife_Recommendation = decompress_pickle(
+    #     "data/nightlife/TN_Nightlife_Recommendation.pbz2")
+    # # nightlife_state_rec_map['TN'] = TN_Nightlife_Recommendation
+    # IN_Nightlife_Recommendation = decompress_pickle(
+    #     "data/nightlife/IN_Nightlife_Recommendation.pbz2")
+    # # nightlife_state_rec_map['IN'] = IN_Nightlife_Recommendation
+    # MO_Nightlife_Recommendation = decompress_pickle(
+    #     "data/nightlife/MO_Nightlife_Recommendation.pbz2")
+    # # nightlife_state_rec_map['MO'] = MO_Nightlife_Recommendation
+    # LA_Nightlife_Recommendation = decompress_pickle(
+    #     "data/nightlife/LA_Nightlife_Recommendation.pbz2")
+    # # nightlife_state_rec_map['LA'] = LA_Nightlife_Recommendation
+    # AZ_Nightlife_Recommendation = decompress_pickle(
+    #     "data/nightlife/AZ_Nightlife_Recommendation.pbz2")
+    # # nightlife_state_rec_map['AZ'] = AZ_Nightlife_Recommendation
+    # NJ_Nightlife_Recommendation = decompress_pickle(
+    #     "data/nightlife/NJ_Nightlife_Recommendation.pbz2")
+    # # nightlife_state_rec_map['NJ'] = NJ_Nightlife_Recommendation
+    # NV_Nightlife_Recommendation = decompress_pickle(
+    #     "data/nightlife/NV_Nightlife_Recommendation.pbz2")
+    # # nightlife_state_rec_map['NV'] = NV_Nightlife_Recommendation
+    # AB_Nightlife_Recommendation = decompress_pickle(
+    #     "data/nightlife/AB_Nightlife_Recommendation.pbz2")
+    # # nightlife_state_rec_map['AB'] = AB_Nightlife_Recommendation
+    # print("Loading Nightlife Data Files Completed...")
+    # print(datetime.datetime.now())
+    # print("\n")
 
-    print("Loading Hotel MF Files...")
-    print(datetime.datetime.now())
-    PA_Hotel_MF = decompress_pickle("data/hotel/PA_Hotel_MF.pbz2")
-    hotel_mf_map['PA'] = PA_Hotel_MF
-    FL_Hotel_MF = decompress_pickle("data/hotel/FL_Hotel_MF.pbz2")
-    hotel_mf_map['FL'] = FL_Hotel_MF
-    TN_Hotel_MF = decompress_pickle("data/hotel/TN_Hotel_MF.pbz2")
-    hotel_mf_map['TN'] = TN_Hotel_MF
-    IN_Hotel_MF = decompress_pickle("data/hotel/IN_Hotel_MF.pbz2")
-    hotel_mf_map['IN'] = IN_Hotel_MF
-    MO_Hotel_MF = decompress_pickle("data/hotel/MO_Hotel_MF.pbz2")
-    hotel_mf_map['MO'] = MO_Hotel_MF
-    LA_Hotel_MF = decompress_pickle("data/hotel/LA_Hotel_MF.pbz2")
-    hotel_mf_map['LA'] = LA_Hotel_MF
-    AZ_Hotel_MF = decompress_pickle("data/hotel/AZ_Hotel_MF.pbz2")
-    hotel_mf_map['AZ'] = AZ_Hotel_MF
-    NJ_Hotel_MF = decompress_pickle("data/hotel/NJ_Hotel_MF.pbz2")
-    hotel_mf_map['NJ'] = NJ_Hotel_MF
-    NV_Hotel_MF = decompress_pickle("data/hotel/NV_Hotel_MF.pbz2")
-    hotel_mf_map['NV'] = NV_Hotel_MF
-    AB_Hotel_MF = decompress_pickle("data/hotel/AB_Hotel_MF.pbz2")
-    hotel_mf_map['AB'] = AB_Hotel_MF
-    print("Loading Hotel MF Files Completed...")
-    print(datetime.datetime.now())
-    print("\n")
+    # print("Loading Hotel MF Files...")
+    # print(datetime.datetime.now())
+    # PA_Hotel_MF = decompress_pickle("data/hotel/PA_Hotel_MF.pbz2")
+    # # hotel_mf_map['PA'] = PA_Hotel_MF
+    # FL_Hotel_MF = decompress_pickle("data/hotel/FL_Hotel_MF.pbz2")
+    # # hotel_mf_map['FL'] = FL_Hotel_MF
+    # TN_Hotel_MF = decompress_pickle("data/hotel/TN_Hotel_MF.pbz2")
+    # # hotel_mf_map['TN'] = TN_Hotel_MF
+    # IN_Hotel_MF = decompress_pickle("data/hotel/IN_Hotel_MF.pbz2")
+    # # hotel_mf_map['IN'] = IN_Hotel_MF
+    # MO_Hotel_MF = decompress_pickle("data/hotel/MO_Hotel_MF.pbz2")
+    # # hotel_mf_map['MO'] = MO_Hotel_MF
+    # LA_Hotel_MF = decompress_pickle("data/hotel/LA_Hotel_MF.pbz2")
+    # # hotel_mf_map['LA'] = LA_Hotel_MF
+    # AZ_Hotel_MF = decompress_pickle("data/hotel/AZ_Hotel_MF.pbz2")
+    # # hotel_mf_map['AZ'] = AZ_Hotel_MF
+    # NJ_Hotel_MF = decompress_pickle("data/hotel/NJ_Hotel_MF.pbz2")
+    # # hotel_mf_map['NJ'] = NJ_Hotel_MF
+    # NV_Hotel_MF = decompress_pickle("data/hotel/NV_Hotel_MF.pbz2")
+    # # hotel_mf_map['NV'] = NV_Hotel_MF
+    # AB_Hotel_MF = decompress_pickle("data/hotel/AB_Hotel_MF.pbz2")
+    # # hotel_mf_map['AB'] = AB_Hotel_MF
+    # print("Loading Hotel MF Files Completed...")
+    # print(datetime.datetime.now())
+    # print("\n")
 
-    print("Loading Restaurent MF Files...")
-    print(datetime.datetime.now())
-    PA_Restaurent_MF = decompress_pickle(
-        "data/restaurent/PA_Restaurent_MF.pbz2")
-    restaurent_mf_map['PA'] = PA_Restaurent_MF
-    FL_Restaurent_MF = decompress_pickle(
-        "data/restaurent/FL_Restaurent_MF.pbz2")
-    restaurent_mf_map['FL'] = FL_Restaurent_MF
-    TN_Restaurent_MF = decompress_pickle(
-        "data/restaurent/TN_Restaurent_MF.pbz2")
-    restaurent_mf_map['TN'] = TN_Restaurent_MF
-    IN_Restaurent_MF = decompress_pickle(
-        "data/restaurent/IN_Restaurent_MF.pbz2")
-    restaurent_mf_map['IN'] = IN_Restaurent_MF
-    MO_Restaurent_MF = decompress_pickle(
-        "data/restaurent/MO_Restaurent_MF.pbz2")
-    restaurent_mf_map['MO'] = MO_Restaurent_MF
-    LA_Restaurent_MF = decompress_pickle(
-        "data/restaurent/LA_Restaurent_MF.pbz2")
-    restaurent_mf_map['LA'] = LA_Restaurent_MF
-    AZ_Restaurent_MF = decompress_pickle(
-        "data/restaurent/AZ_Restaurent_MF.pbz2")
-    restaurent_mf_map['AZ'] = AZ_Restaurent_MF
-    NJ_Restaurent_MF = decompress_pickle(
-        "data/restaurent/NJ_Restaurent_MF.pbz2")
-    restaurent_mf_map['NJ'] = NJ_Restaurent_MF
-    NV_Restaurent_MF = decompress_pickle(
-        "data/restaurent/NV_Restaurent_MF.pbz2")
-    restaurent_mf_map['NV'] = NV_Restaurent_MF
-    AB_Restaurent_MF = decompress_pickle(
-        "data/restaurent/AB_Restaurent_MF.pbz2")
-    restaurent_mf_map['AB'] = AB_Restaurent_MF
-    print("Loading Restaurent MF Files Completed...")
-    print(datetime.datetime.now())
-    print("\n")
+    # print("Loading Restaurent MF Files...")
+    # print(datetime.datetime.now())
+    # PA_Restaurent_MF = decompress_pickle(
+    #     "data/restaurent/PA_Restaurent_MF.pbz2")
+    # # restaurent_mf_map['PA'] = PA_Restaurent_MF
+    # FL_Restaurent_MF = decompress_pickle(
+    #     "data/restaurent/FL_Restaurent_MF.pbz2")
+    # # restaurent_mf_map['FL'] = FL_Restaurent_MF
+    # TN_Restaurent_MF = decompress_pickle(
+    #     "data/restaurent/TN_Restaurent_MF.pbz2")
+    # # restaurent_mf_map['TN'] = TN_Restaurent_MF
+    # IN_Restaurent_MF = decompress_pickle(
+    #     "data/restaurent/IN_Restaurent_MF.pbz2")
+    # # restaurent_mf_map['IN'] = IN_Restaurent_MF
+    # MO_Restaurent_MF = decompress_pickle(
+    #     "data/restaurent/MO_Restaurent_MF.pbz2")
+    # # restaurent_mf_map['MO'] = MO_Restaurent_MF
+    # LA_Restaurent_MF = decompress_pickle(
+    #     "data/restaurent/LA_Restaurent_MF.pbz2")
+    # # restaurent_mf_map['LA'] = LA_Restaurent_MF
+    # AZ_Restaurent_MF = decompress_pickle(
+    #     "data/restaurent/AZ_Restaurent_MF.pbz2")
+    # # restaurent_mf_map['AZ'] = AZ_Restaurent_MF
+    # NJ_Restaurent_MF = decompress_pickle(
+    #     "data/restaurent/NJ_Restaurent_MF.pbz2")
+    # # restaurent_mf_map['NJ'] = NJ_Restaurent_MF
+    # NV_Restaurent_MF = decompress_pickle(
+    #     "data/restaurent/NV_Restaurent_MF.pbz2")
+    # # restaurent_mf_map['NV'] = NV_Restaurent_MF
+    # AB_Restaurent_MF = decompress_pickle(
+    #     "data/restaurent/AB_Restaurent_MF.pbz2")
+    # # restaurent_mf_map['AB'] = AB_Restaurent_MF
+    # print("Loading Restaurent MF Files Completed...")
+    # print(datetime.datetime.now())
+    # print("\n")
 
-    print("Loading Nightlife MF Files...")
-    print(datetime.datetime.now())
-    PA_Nightlife_MF = decompress_pickle(
-        "data/nightlife/PA_Nightlife_MF.pbz2")
-    nightlife_mf_map['PA'] = PA_Nightlife_MF
-    FL_Nightlife_MF = decompress_pickle(
-        "data/nightlife/FL_Nightlife_MF.pbz2")
-    nightlife_mf_map['FL'] = FL_Nightlife_MF
-    TN_Nightlife_MF = decompress_pickle(
-        "data/nightlife/TN_Nightlife_MF.pbz2")
-    nightlife_mf_map['TN'] = TN_Nightlife_MF
-    IN_Nightlife_MF = decompress_pickle(
-        "data/nightlife/IN_Nightlife_MF.pbz2")
-    nightlife_mf_map['IN'] = IN_Nightlife_MF
-    MO_Nightlife_MF = decompress_pickle(
-        "data/nightlife/MO_Nightlife_MF.pbz2")
-    nightlife_mf_map['MO'] = MO_Nightlife_MF
-    LA_Nightlife_MF = decompress_pickle(
-        "data/nightlife/LA_Nightlife_MF.pbz2")
-    nightlife_mf_map['LA'] = LA_Nightlife_MF
-    AZ_Nightlife_MF = decompress_pickle(
-        "data/nightlife/AZ_Nightlife_MF.pbz2")
-    nightlife_mf_map['AZ'] = AZ_Nightlife_MF
-    NJ_Nightlife_MF = decompress_pickle(
-        "data/nightlife/NJ_Nightlife_MF.pbz2")
-    nightlife_mf_map['NJ'] = NJ_Nightlife_MF
-    NV_Nightlife_MF = decompress_pickle(
-        "data/nightlife/NV_Nightlife_MF.pbz2")
-    nightlife_mf_map['NV'] = NV_Nightlife_MF
-    AB_Nightlife_MF = decompress_pickle(
-        "data/nightlife/AB_Nightlife_MF.pbz2")
-    nightlife_mf_map['AB'] = AB_Nightlife_MF
-    print("Loading Nightlife MF Files Completed...")
-    print(datetime.datetime.now())
-    print("\n")
+    # print("Loading Nightlife MF Files...")
+    # print(datetime.datetime.now())
+    # PA_Nightlife_MF = decompress_pickle(
+    #     "data/nightlife/PA_Nightlife_MF.pbz2")
+    # # nightlife_mf_map['PA'] = PA_Nightlife_MF
+    # FL_Nightlife_MF = decompress_pickle(
+    #     "data/nightlife/FL_Nightlife_MF.pbz2")
+    # # nightlife_mf_map['FL'] = FL_Nightlife_MF
+    # TN_Nightlife_MF = decompress_pickle(
+    #     "data/nightlife/TN_Nightlife_MF.pbz2")
+    # # nightlife_mf_map['TN'] = TN_Nightlife_MF
+    # IN_Nightlife_MF = decompress_pickle(
+    #     "data/nightlife/IN_Nightlife_MF.pbz2")
+    # # nightlife_mf_map['IN'] = IN_Nightlife_MF
+    # MO_Nightlife_MF = decompress_pickle(
+    #     "data/nightlife/MO_Nightlife_MF.pbz2")
+    # # nightlife_mf_map['MO'] = MO_Nightlife_MF
+    # LA_Nightlife_MF = decompress_pickle(
+    #     "data/nightlife/LA_Nightlife_MF.pbz2")
+    # # nightlife_mf_map['LA'] = LA_Nightlife_MF
+    # AZ_Nightlife_MF = decompress_pickle(
+    #     "data/nightlife/AZ_Nightlife_MF.pbz2")
+    # # nightlife_mf_map['AZ'] = AZ_Nightlife_MF
+    # NJ_Nightlife_MF = decompress_pickle(
+    #     "data/nightlife/NJ_Nightlife_MF.pbz2")
+    # # nightlife_mf_map['NJ'] = NJ_Nightlife_MF
+    # NV_Nightlife_MF = decompress_pickle(
+    #     "data/nightlife/NV_Nightlife_MF.pbz2")
+    # # nightlife_mf_map['NV'] = NV_Nightlife_MF
+    # AB_Nightlife_MF = decompress_pickle(
+    #     "data/nightlife/AB_Nightlife_MF.pbz2")
+    # # nightlife_mf_map['AB'] = AB_Nightlife_MF
+    # print("Loading Nightlife MF Files Completed...")
+    # print(datetime.datetime.now())
+    # print("\n")
 
-    print("Loading Hotel AECF Files...")
-    print(datetime.datetime.now())
-    PA_Hotel_AECF = decompress_pickle(
-        "data/hotel/PA_Hotel_AECF.pbz2")
-    hotel_aecf_map['PA'] = PA_Hotel_AECF
-    FL_Hotel_AECF = decompress_pickle(
-        "data/hotel/FL_Hotel_AECF.pbz2")
-    hotel_aecf_map['FL'] = FL_Hotel_AECF
-    TN_Hotel_AECF = decompress_pickle(
-        "data/hotel/TN_Hotel_AECF.pbz2")
-    hotel_aecf_map['TN'] = TN_Hotel_AECF
-    IN_Hotel_AECF = decompress_pickle(
-        "data/hotel/IN_Hotel_AECF.pbz2")
-    hotel_aecf_map['IN'] = IN_Hotel_AECF
-    MO_Hotel_AECF = decompress_pickle(
-        "data/hotel/MO_Hotel_AECF.pbz2")
-    hotel_aecf_map['MO'] = MO_Hotel_AECF
-    LA_Hotel_AECF = decompress_pickle(
-        "data/hotel/LA_Hotel_AECF.pbz2")
-    hotel_aecf_map['LA'] = LA_Hotel_AECF
-    AZ_Hotel_AECF = decompress_pickle(
-        "data/hotel/AZ_Hotel_AECF.pbz2")
-    hotel_aecf_map['AZ'] = AZ_Hotel_AECF
-    NJ_Hotel_AECF = decompress_pickle(
-        "data/hotel/NJ_Hotel_AECF.pbz2")
-    hotel_aecf_map['NJ'] = NJ_Hotel_AECF
-    NV_Hotel_AECF = decompress_pickle(
-        "data/hotel/NV_Hotel_AECF.pbz2")
-    hotel_aecf_map['NV'] = NV_Hotel_AECF
-    AB_Hotel_AECF = decompress_pickle(
-        "data/hotel/AB_Hotel_AECF.pbz2")
-    hotel_aecf_map['AB'] = AB_Hotel_AECF
-    print("Loading Hotel AECF Files Completed...")
-    print(datetime.datetime.now())
-    print("\n")
+    # print("Loading Hotel AECF Files...")
+    # print(datetime.datetime.now())
+    # PA_Hotel_AECF = decompress_pickle(
+    #     "data/hotel/PA_Hotel_AECF.pbz2")
+    # # hotel_aecf_map['PA'] = PA_Hotel_AECF
+    # FL_Hotel_AECF = decompress_pickle(
+    #     "data/hotel/FL_Hotel_AECF.pbz2")
+    # # hotel_aecf_map['FL'] = FL_Hotel_AECF
+    # TN_Hotel_AECF = decompress_pickle(
+    #     "data/hotel/TN_Hotel_AECF.pbz2")
+    # # hotel_aecf_map['TN'] = TN_Hotel_AECF
+    # IN_Hotel_AECF = decompress_pickle(
+    #     "data/hotel/IN_Hotel_AECF.pbz2")
+    # # hotel_aecf_map['IN'] = IN_Hotel_AECF
+    # MO_Hotel_AECF = decompress_pickle(
+    #     "data/hotel/MO_Hotel_AECF.pbz2")
+    # # hotel_aecf_map['MO'] = MO_Hotel_AECF
+    # LA_Hotel_AECF = decompress_pickle(
+    #     "data/hotel/LA_Hotel_AECF.pbz2")
+    # # hotel_aecf_map['LA'] = LA_Hotel_AECF
+    # AZ_Hotel_AECF = decompress_pickle(
+    #     "data/hotel/AZ_Hotel_AECF.pbz2")
+    # # hotel_aecf_map['AZ'] = AZ_Hotel_AECF
+    # NJ_Hotel_AECF = decompress_pickle(
+    #     "data/hotel/NJ_Hotel_AECF.pbz2")
+    # # hotel_aecf_map['NJ'] = NJ_Hotel_AECF
+    # NV_Hotel_AECF = decompress_pickle(
+    #     "data/hotel/NV_Hotel_AECF.pbz2")
+    # # hotel_aecf_map['NV'] = NV_Hotel_AECF
+    # AB_Hotel_AECF = decompress_pickle(
+    #     "data/hotel/AB_Hotel_AECF.pbz2")
+    # # hotel_aecf_map['AB'] = AB_Hotel_AECF
+    # print("Loading Hotel AECF Files Completed...")
+    # print(datetime.datetime.now())
+    # print("\n")
 
-    print("Loading Restaurent AECF Files...")
-    print(datetime.datetime.now())
-    PA_Restaurent_AECF = decompress_pickle(
-        "data/restaurent/PA_Restaurent_AECF.pbz2")
-    restaurent_aecf_map['PA'] = PA_Restaurent_AECF
-    FL_Restaurent_AECF = decompress_pickle(
-        "data/restaurent/FL_Restaurent_AECF.pbz2")
-    restaurent_aecf_map['FL'] = FL_Restaurent_AECF
-    TN_Restaurent_AECF = decompress_pickle(
-        "data/restaurent/TN_Restaurent_AECF.pbz2")
-    restaurent_aecf_map['TN'] = TN_Restaurent_AECF
-    IN_Restaurent_AECF = decompress_pickle(
-        "data/restaurent/IN_Restaurent_AECF.pbz2")
-    restaurent_aecf_map['IN'] = IN_Restaurent_AECF
-    MO_Restaurent_AECF = decompress_pickle(
-        "data/restaurent/MO_Restaurent_AECF.pbz2")
-    restaurent_aecf_map['MO'] = MO_Restaurent_AECF
-    LA_Restaurent_AECF = decompress_pickle(
-        "data/restaurent/LA_Restaurent_AECF.pbz2")
-    restaurent_aecf_map['LA'] = LA_Restaurent_AECF
-    AZ_Restaurent_AECF = decompress_pickle(
-        "data/restaurent/AZ_Restaurent_AECF.pbz2")
-    restaurent_aecf_map['AZ'] = AZ_Restaurent_AECF
-    NJ_Restaurent_AECF = decompress_pickle(
-        "data/restaurent/NJ_Restaurent_AECF.pbz2")
-    restaurent_aecf_map['NJ'] = NJ_Restaurent_AECF
-    NV_Restaurent_AECF = decompress_pickle(
-        "data/restaurent/NV_Restaurent_AECF.pbz2")
-    restaurent_aecf_map['NV'] = NV_Restaurent_AECF
-    AB_Restaurent_AECF = decompress_pickle(
-        "data/restaurent/AB_Restaurent_AECF.pbz2")
-    restaurent_aecf_map['AB'] = AB_Restaurent_AECF
-    print("Loading Restaurent AECF Files Completed...")
-    print(datetime.datetime.now())
-    print("\n")
+    # print("Loading Restaurent AECF Files...")
+    # print(datetime.datetime.now())
+    # PA_Restaurent_AECF = decompress_pickle(
+    #     "data/restaurent/PA_Restaurent_AECF.pbz2")
+    # # restaurent_aecf_map['PA'] = PA_Restaurent_AECF
+    # FL_Restaurent_AECF = decompress_pickle(
+    #     "data/restaurent/FL_Restaurent_AECF.pbz2")
+    # # restaurent_aecf_map['FL'] = FL_Restaurent_AECF
+    # TN_Restaurent_AECF = decompress_pickle(
+    #     "data/restaurent/TN_Restaurent_AECF.pbz2")
+    # # restaurent_aecf_map['TN'] = TN_Restaurent_AECF
+    # IN_Restaurent_AECF = decompress_pickle(
+    #     "data/restaurent/IN_Restaurent_AECF.pbz2")
+    # # restaurent_aecf_map['IN'] = IN_Restaurent_AECF
+    # MO_Restaurent_AECF = decompress_pickle(
+    #     "data/restaurent/MO_Restaurent_AECF.pbz2")
+    # # restaurent_aecf_map['MO'] = MO_Restaurent_AECF
+    # LA_Restaurent_AECF = decompress_pickle(
+    #     "data/restaurent/LA_Restaurent_AECF.pbz2")
+    # # restaurent_aecf_map['LA'] = LA_Restaurent_AECF
+    # AZ_Restaurent_AECF = decompress_pickle(
+    #     "data/restaurent/AZ_Restaurent_AECF.pbz2")
+    # # restaurent_aecf_map['AZ'] = AZ_Restaurent_AECF
+    # NJ_Restaurent_AECF = decompress_pickle(
+    #     "data/restaurent/NJ_Restaurent_AECF.pbz2")
+    # # restaurent_aecf_map['NJ'] = NJ_Restaurent_AECF
+    # NV_Restaurent_AECF = decompress_pickle(
+    #     "data/restaurent/NV_Restaurent_AECF.pbz2")
+    # # restaurent_aecf_map['NV'] = NV_Restaurent_AECF
+    # AB_Restaurent_AECF = decompress_pickle(
+    #     "data/restaurent/AB_Restaurent_AECF.pbz2")
+    # # restaurent_aecf_map['AB'] = AB_Restaurent_AECF
+    # print("Loading Restaurent AECF Files Completed...")
+    # print(datetime.datetime.now())
+    # print("\n")
 
-    print("Loading Nightlife AECF Files...")
-    print(datetime.datetime.now())
-    PA_Nightlife_AECF = decompress_pickle(
-        "data/nightlife/PA_Nightlife_AECF.pbz2")
-    nightlife_aecf_map['PA'] = PA_Nightlife_AECF
-    FL_Nightlife_AECF = decompress_pickle(
-        "data/nightlife/FL_Nightlife_AECF.pbz2")
-    nightlife_aecf_map['FL'] = FL_Nightlife_AECF
-    TN_Nightlife_AECF = decompress_pickle(
-        "data/nightlife/TN_Nightlife_AECF.pbz2")
-    nightlife_aecf_map['TN'] = TN_Nightlife_AECF
-    IN_Nightlife_AECF = decompress_pickle(
-        "data/nightlife/IN_Nightlife_AECF.pbz2")
-    nightlife_aecf_map['IN'] = IN_Nightlife_AECF
-    MO_Nightlife_AECF = decompress_pickle(
-        "data/nightlife/MO_Nightlife_AECF.pbz2")
-    nightlife_aecf_map['MO'] = MO_Nightlife_AECF
-    LA_Nightlife_AECF = decompress_pickle(
-        "data/nightlife/LA_Nightlife_AECF.pbz2")
-    nightlife_aecf_map['LA'] = LA_Nightlife_AECF
-    AZ_Nightlife_AECF = decompress_pickle(
-        "data/nightlife/AZ_Nightlife_AECF.pbz2")
-    nightlife_aecf_map['AZ'] = AZ_Nightlife_AECF
-    NJ_Nightlife_AECF = decompress_pickle(
-        "data/nightlife/NJ_Nightlife_AECF.pbz2")
-    nightlife_aecf_map['NJ'] = NJ_Nightlife_AECF
-    NV_Nightlife_AECF = decompress_pickle(
-        "data/nightlife/NV_Nightlife_AECF.pbz2")
-    nightlife_aecf_map['NV'] = NV_Nightlife_AECF
-    AB_Nightlife_AECF = decompress_pickle(
-        "data/nightlife/AB_Nightlife_AECF.pbz2")
-    nightlife_aecf_map['AB'] = AB_Nightlife_AECF
-    print("Loading Nightlife AECF Files Completed...")
-    print(datetime.datetime.now())
-    print("\n")
+    # print("Loading Nightlife AECF Files...")
+    # print(datetime.datetime.now())
+    # PA_Nightlife_AECF = decompress_pickle(
+    #     "data/nightlife/PA_Nightlife_AECF.pbz2")
+    # # nightlife_aecf_map['PA'] = PA_Nightlife_AECF
+    # FL_Nightlife_AECF = decompress_pickle(
+    #     "data/nightlife/FL_Nightlife_AECF.pbz2")
+    # # nightlife_aecf_map['FL'] = FL_Nightlife_AECF
+    # TN_Nightlife_AECF = decompress_pickle(
+    #     "data/nightlife/TN_Nightlife_AECF.pbz2")
+    # # nightlife_aecf_map['TN'] = TN_Nightlife_AECF
+    # IN_Nightlife_AECF = decompress_pickle(
+    #     "data/nightlife/IN_Nightlife_AECF.pbz2")
+    # # nightlife_aecf_map['IN'] = IN_Nightlife_AECF
+    # MO_Nightlife_AECF = decompress_pickle(
+    #     "data/nightlife/MO_Nightlife_AECF.pbz2")
+    # # nightlife_aecf_map['MO'] = MO_Nightlife_AECF
+    # LA_Nightlife_AECF = decompress_pickle(
+    #     "data/nightlife/LA_Nightlife_AECF.pbz2")
+    # # nightlife_aecf_map['LA'] = LA_Nightlife_AECF
+    # AZ_Nightlife_AECF = decompress_pickle(
+    #     "data/nightlife/AZ_Nightlife_AECF.pbz2")
+    # # nightlife_aecf_map['AZ'] = AZ_Nightlife_AECF
+    # NJ_Nightlife_AECF = decompress_pickle(
+    #     "data/nightlife/NJ_Nightlife_AECF.pbz2")
+    # # nightlife_aecf_map['NJ'] = NJ_Nightlife_AECF
+    # NV_Nightlife_AECF = decompress_pickle(
+    #     "data/nightlife/NV_Nightlife_AECF.pbz2")
+    # # nightlife_aecf_map['NV'] = NV_Nightlife_AECF
+    # AB_Nightlife_AECF = decompress_pickle(
+    #     "data/nightlife/AB_Nightlife_AECF.pbz2")
+    # # nightlife_aecf_map['AB'] = AB_Nightlife_AECF
+    # print("Loading Nightlife AECF Files Completed...")
+    # print(datetime.datetime.now())
+    # print("\n")
     # helper_fun()
-    app.run(debug=False)
-    # app.run(port=8080, host='0.0.0.0', debug=False)
+    app.run()
