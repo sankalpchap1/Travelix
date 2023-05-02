@@ -249,6 +249,74 @@ def serve():
     return send_from_directory(app.static_folder, 'index.html')
 
 
+@app.route('/<string:rec_type>/<string:state_name>/<int:user_id>/getAll')
+@cross_origin()
+def getAll(rec_type, state_name, user_id):
+    global hotel_state_rec_map
+    global restaurent_state_rec_map
+    global nightlife_state_rec_map
+    global hotel_mf_map
+    global restaurent_mf_map
+    global nightlife_mf_map
+
+    global hotel_aecf_map
+    global restaurent_aecf_map
+    global nightlife_aecf_map
+
+    if rec_type == "hotel":
+        mf_recommendations = hotel_mf_map[state_name]
+        aecf_recommendations = hotel_aecf_map[state_name]
+        recommendations_class = hotel_state_rec_map[state_name]
+    elif rec_type == "restaurent":
+        mf_recommendations = restaurent_mf_map[state_name]
+        aecf_recommendations = restaurent_aecf_map[state_name]
+        recommendations_class = restaurent_state_rec_map[state_name]
+    elif rec_type == "nightlife":
+        mf_recommendations = nightlife_mf_map[state_name]
+        aecf_recommendations = nightlife_aecf_map[state_name]
+        recommendations_class = nightlife_state_rec_map[state_name]
+
+    npr_list = recommendations_class.getNPRForuUser(user_id)
+    mf_ids = mf_recommendations[user_id][:12]
+
+    mf_list = []
+    for i in range(12):
+        business_hash = recommendations_class.getBusinessHashFromBusinessNum(
+            mf_ids[i])
+        business = recommendations_class.getBusinessInfo(business_hash)
+        mf_list.append(business)
+
+    aecf_ids = aecf_recommendations.get_user_recommendation(user_id)
+
+    aecf_list = []
+    for i in range(12):
+        business_hash = recommendations_class.getBusinessHashFromBusinessNum(
+            aecf_ids[i])
+        business = recommendations_class.getBusinessInfo(business_hash)
+        aecf_list.append(business)
+
+    # print(npr_list)
+    # print(aecf_list)
+    # print(mf_list)
+    return json.dumps({
+        'npr': [{'name': business.name, 'address': business.address, 'city': business.city, 'state': business.state, 'postal_code': business.postal_code, 'stars': business.stars} for business in npr_list],
+        'mf': [{'name': business.name, 'address': business.address, 'city': business.city, 'state': business.state, 'postal_code': business.postal_code, 'stars': business.stars} for business in mf_list],
+        'aecf': [{'name': business.name, 'address': business.address, 'city': business.city, 'state': business.state, 'postal_code': business.postal_code, 'stars': business.stars} for business in aecf_list]
+    })
+
+
+@app.route('/<int:user_id>/getNPR2')
+@cross_origin()
+def getNPR2Recommendation(user_id):
+    global hotel_state_rec_map
+    global restaurent_state_rec_map
+    global nightlife_state_rec_map
+
+    business_list = hotel_state_rec_map['LA'].getNPRForuUser(user_id)
+    return json.dumps(
+        [{'name': business.name, 'address': business.address, 'city': business.city, 'state': business.state, 'postal_code': business.postal_code, 'stars': business.stars} for business in business_list])
+
+
 @app.route('/<string:rec_type>/<string:state_name>/<int:user_id>/getNPR')
 @cross_origin()
 def getNPRRecommendation(rec_type, state_name, user_id):
@@ -333,23 +401,6 @@ def getAECFRecommendation(rec_type, state_name, user_id):
 
 
 if __name__ == '__main__':
-    # hotel_state_rec_map
-    #
-    # restaurent_state_rec_map
-    #
-    # nightlife_state_rec_map
-    #
-    # global hotel_mf_map
-    #
-    # global restaurent_mf_map
-    #
-    # global nightlife_mf_map
-    #
-    # global hotel_aecf_map
-    #
-    # global restaurent_aecf_map
-    #
-    # global nightlife_aecf_map
     print("Loading Hotel Data Files...")
     print(datetime.datetime.now())
     PA_Hotel_Recommendation = decompress_pickle(
