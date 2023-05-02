@@ -7,6 +7,9 @@ import datetime
 from Business import Business
 from AE_CF import AE_CF
 import bz2file as bz2
+from scipy.sparse import coo_matrix
+import numpy as np
+from collections import defaultdict
 # print("pickle version"+pickle.format_version)
 
 
